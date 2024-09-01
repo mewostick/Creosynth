@@ -1,0 +1,314 @@
+---
+title: Debloat your OS (a lot of tweaks are taken from AtlasOS)
+actions:
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'ContentDeliveryAllowed'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'FeatureManagementEnabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'SubscribedContentEnabled'
+    data: '0'
+    type: REG_DWORD
+    # Ensure no settings get changed
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'RemediationRequired'
+    data: '0'
+    type: REG_DWORD
+
+    # Prevent suggested app installs
+    # https://www.tenforums.com/tutorials/68217-turn-off-automatic-installation-suggested-apps-windows-10-a.html
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'OemPreInstalledAppsEnabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'PreInstalledAppsEnabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'PreInstalledAppsEverEnabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'SilentInstalledAppsEnabled'
+    data: '0'
+    type: REG_DWORD
+
+    # Commented as these removals would likely break re-enabling content
+    # Content would likely stay disabled anyways
+  # - !registryKey:
+  #   path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Subscriptions'
+  # - !registryKey:
+  #   path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\SuggestedApps'
+
+    # 'Show me notifications in the Settings app' in Windows 11
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\SystemSettings\AccountNotifications'
+    value: 'EnableAccountNotifications'
+    data: '0'
+    type: REG_DWORD
+
+    # Windows welcome experience
+    # https://winaero.com/disable-welcome-page-windows-10/
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'SubscribedContent-310093Enabled'
+    data: '0'
+    type: REG_DWORD
+
+    # Suggested content in the Settings app
+    # https://www.tenforums.com/tutorials/100541-turn-off-suggested-content-settings-app-windows-10-a.html
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'SubscribedContent-338393Enabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'SubscribedContent-353694Enabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'SubscribedContent-353696Enabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'SystemPaneSuggestionsEnabled'
+    data: '0'
+    type: REG_DWORD
+
+    # "Get fun facts, tips, tricks, and more on your lock screen"
+    # https://www.elevenforum.com/t/enable-or-disable-facts-tips-and-tricks-on-lock-screen-in-windows-11.7079/
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'SubscribedContent-338387Enabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'RotatingLockScreenOverlayEnabled'
+    data: '0'
+    type: REG_DWORD
+
+    # Suggestions in Start
+    # https://www.tenforums.com/tutorials/24117-turn-off-app-suggestions-start-windows-10-a.html
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'SubscribedContent-338388Enabled'
+    data: '0'
+    type: REG_DWORD
+
+    # "Get tips, tricks, and suggestions as you use Windows"
+    # https://www.tenforums.com/tutorials/30869-turn-off-tip-trick-suggestion-notifications-windows-10-a.html
+    # https://winaero.com/disable-tips-about-windows-10/
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'SubscribedContent-338389Enabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'SoftLandingEnabled'
+    data: '0'
+    type: REG_DWORD
+
+    # Disable Windows Update reserved storage space
+  - !run: {exe: 'DISM.exe', args: '/Online /Set-ReservedStorageState /State:Disabled', weight: 30}
+
+    # Updates compatibility database
+  - !scheduledTask: {path: '\Microsoft\Windows\Application Experience\PcaPatchDbTask', operation: disable}
+
+    # UCPD - might not exist on all installs, so ignore errors
+  - !scheduledTask: {path: '\Microsoft\Windows\AppxDeploymentClient\UCPD velocity', operation: disable, ignoreErrors: true}
+
+    # A/B testing usage reports
+  - !scheduledTask: {path: '\Microsoft\Windows\Flighting\FeatureConfig\UsageDataReporting', operation: disable, ignoreErrors: true}
+  
+  - !registryValue:
+    path: 'HKLM\System\CurrentControlSet\Control\Ubpm'
+    value: 'CriticalMaintenance_UsageDataReporting' # Remove from automatic maintenance
+    operation: delete
+
+  # https://admx.help/?Category=Windows_11_2022&Policy=Microsoft.Policies.CloudContent::DisableSoftLanding
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    value: 'DisableSoftLanding'
+    data: '1'
+    type: REG_DWORD
+
+  # disabling the settings banner in windows 11
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\ValueBanner.IdealStateFeatureControlProvider'
+    value: 'ActivationType'
+    data: '0'
+    type: REG_DWORD
+    builds: [ '>=22000' ]
+
+  # disable the new search icon in windows 10
+  - !cmd:
+    command: '10SEARCHICON.bat'
+    exeDir: true
+    wait: true
+    builds: [ '<22000' ]
+
+  # disabling 'recommended' ads in start menu in windows 11
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'Start_IrisRecommendations'
+    data: '0'
+    type: REG_DWORD
+    builds: [ '>=22000' ]
+
+  # disabling widgets in windows 11
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Dsh'
+    value: 'AllowNewsAndInterests'
+    data: '0'
+    type: REG_DWORD
+    builds: [ '>=22000' ]
+
+  # disabling windows feedback
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Siuf\Rules'
+    value: 'NumberOfSIUFInPeriod'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Siuf\Rules'
+    value: 'PeriodInNanoSeconds'
+    operation: delete
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection'
+    value: 'DoNotShowFeedbackNotifications'
+    data: '1'
+    type: REG_DWORD
+
+  # disabling settings tips
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowOnlineTips'
+    value: 'value'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    value: 'AllowOnlineTips'
+    data: '0'
+    type: REG_DWORD
+
+    # disable news feed in windows 10
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds'
+    value: 'EnableFeeds'
+    data: '0'
+    type: REG_DWORD
+    builds: [ '<22000' ]
+
+    # remove 'Meet Now' in windows 10
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    value: 'HideSCAMeetNow'
+    data: '1'
+    type: REG_DWORD
+    builds: [ '<22000' ]
+
+    # remove search box and task view from the taskbar
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
+    value: 'SearchboxTaskbarMode'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'ShowTaskViewButton'
+    data: '0'
+    type: REG_DWORD
+
+    # Config pins
+  - !registryKey:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband'
+  - !registryKey:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband'
+    operation: add
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband'
+    value: 'FavoritesVersion'
+    data: '3'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband\AuxilliaryPins'
+    value: 'MailPin'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband\AuxilliaryPins'
+    value: 'CopilotPWAPin'
+    data: '0'
+    type: REG_DWORD
+
+    # explorer ads
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'ShowHints'
+    data: '0'
+    type: REG_DWORD
+
+    # disable location tracking (taken from Chris Titus Win Utility)
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore'
+    value: 'location'
+    data: 'Deny'
+    type: REG_SZ
+
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}'
+    value: 'SensorPermissionState'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\lfsvc\Service\Configuration'
+    value: 'Status'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SYSTEM\Maps'
+    value: 'AutoUpdateEnabled'
+    data: '0'
+    type: REG_DWORD
+
+    # disable wifi sense (taken from Chris Titus Win Utility)
+  - !registryValue:
+    path: 'HKLM\Software\Microsoft\PolicyManager\default\WiFi'
+    value: 'AllowWiFiHotSpotReporting'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\Software\Microsoft\PolicyManager\default\WiFi'
+    value: 'AllowAutoConnectToWiFiSenseHotspots'
+    data: '0'
+    type: REG_DWORD
+
+    # disable spotlight
+  - !registryValue:
+    path: 'HKCU\Software\Policies\Microsoft\Windows\Cloud Content'
+    value: 'DisableSpotlightCollectionOnDesktop'
+    data: '1'
+    type: REG_DWORD
+

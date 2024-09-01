@@ -1,0 +1,120 @@
+title: Remove Edge (taken from AME 11)
+actions:
+  - !writeStatus: {status: 'Removing Microsoft Edge'}
+  - !taskKill: {name: "MicrosoftEdgeUpdate"}
+  - !taskKill: {name: "msedge"}
+  - !taskKill: {name: "MicrosoftEdge*"}
+  - !taskKill: {name: "setup", pathContains: "\\Edge"}
+  - !taskKill: {name: "msedgewebview2"}
+  - !service: {name: "edgeupdate", operation: delete}
+  - !service: {name: "edgeupdatem", operation: delete}
+  - !service: {name: "MicrosoftEdgeElevationService", operation: delete}
+
+  - !file: {path: '%SystemDrive%\Users\Public\Desktop\Microsoft Edge.lnk'}
+  - !file: {path: '%ProgramData%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk'}
+
+  - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced', value: 'TaskbarMigratedBrowserPin', operation: delete}
+  - !registryKey: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate'}
+  - !registryKey: {path: 'HKCR\CLSID\{1FCBE96C-1697-43AF-9140-2897C7C69767}'}
+  - !registryKey: {path: 'HKCR\AppID\{1FCBE96C-1697-43AF-9140-2897C7C69767}'}
+  - !registryKey: {path: 'HKCR\Interface\{C9C2B807-7731-4F34-81B7-44FF7779522B}'}
+  - !registryKey: {path: 'HKCR\TypeLib\{C9C2B807-7731-4F34-81B7-44FF7779522B}'}
+  - !registryKey: {path: 'HKCR\MSEdgeHTM'}
+  - !registryKey: {path: 'HKCR\MSEdgePDF'}
+  - !registryKey: {path: 'HKCR\MSEdgeMHT'}
+  - !registryKey: {path: 'HKCR\AppID\{628ACE20-B77A-456F-A88D-547DB6CEEDD5}'}
+  - !registryKey: {path: 'HKLM\SOFTWARE\Clients\StartMenuInternet\Microsoft Edge'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\RegisteredApplications', value: 'Microsoft Edge', operation: delete}
+  - !registryKey: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\msedge.exe'}
+  - !registryValue: {path: 'HKCR\.htm\OpenWithProgIds', value: 'MSEdgeHTM', operation: delete}
+  - !registryValue: {path: 'HKCR\.html\OpenWithProgIds', value: 'MSEdgeHTM', operation: delete}
+  - !registryValue: {path: 'HKCR\.shtml\OpenWithProgids', value: 'MSEdgeHTM', operation: delete}
+  - !registryValue: {path: 'HKCR\.svg\OpenWithProgIds', value: 'MSEdgeHTM', operation: delete}
+  - !registryValue: {path: 'HKCR\.xht\OpenWithProgIds', value: 'MSEdgeHTM', operation: delete}
+  - !registryValue: {path: 'HKCR\.xhtml\OpenWithProgIds', value: 'MSEdgeHTM', operation: delete}
+  - !registryValue: {path: 'HKCR\.webp\OpenWithProgids', value: 'MSEdgeHTM', operation: delete}
+  - !registryValue: {path: 'HKCR\.xml\OpenWithProgIds', value: 'MSEdgeHTM', operation: delete}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ApplicationAssociationToasts', value: 'MSEdgeHTM_microsoft-edge', operation: delete}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Internet Explorer\Main\EnterpriseMode', value: 'MSEdgePath', operation: delete}
+  - !registryKey: {path: 'HKCR\AppID\ie_to_edge_bho.dll'}
+  - !registryKey: {path: 'HKCR\AppID\{31575964-95F7-414B-85E4-0E9A93699E13}'}
+  - !registryKey: {path: 'HKCR\CLSID\{1FD49718-1D00-4B19-AF5F-070AF6D5D54C}'}
+  - !registryKey: {path: 'HKCR\WOW6432Node\CLSID\{1FD49718-1D00-4B19-AF5F-070AF6D5D54C}'}
+  - !registryKey: {path: 'HKCR\ie_to_edge_bho.IEToEdgeBHO'}
+  - !registryKey: {path: 'HKCR\ie_to_edge_bho.IEToEdgeBHO.1'}
+
+    # Internet Explorer
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Internet Explorer\Main\EnterpriseMode', value: 'MSEdgePath', operation: delete}
+  - !registryKey: {path: 'HKLM\SOFTWARE\Microsoft\Internet Explorer\Low Rights\ElevationPolicy\{c9abcf16-8dc2-4a95-bae3-24fd98f2ed29}'}
+  - !registryKey: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Internet Explorer\Low Rights\ElevationPolicy\{c9abcf16-8dc2-4a95-bae3-24fd98f2ed29}'}
+  - !registryKey: {path: 'HKLM\SOFTWARE\Microsoft\Internet Explorer\ProtocolExecute\microsoft-edge'}
+  - !registryKey: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Internet Explorer\ProtocolExecute\microsoft-edge'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Internet Explorer\EdgeIntegration\AdapterLocations\C:\Program Files (x86)\Microsoft\Edge', value: 'Application', operation: delete}
+
+  - !registryKey: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects\{1FD49718-1D00-4B19-AF5F-070AF6D5D54C}'}
+  - !registryKey: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects\{1FD49718-1D00-4B19-AF5F-070AF6D5D54C}'}
+  - !registryKey: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Ext\PreApproved\{1FD49718-1D00-4B19-AF5F-070AF6D5D54C}'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext\CLSID', value: '{1FD49718-1D00-4B19-AF5F-070AF6D5D54C}', operation: delete}
+  - !registryKey: {path: 'HKLM\SOFTWARE\Microsoft\Edge'}
+  - !registryKey: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Edge'}
+  - !registryKey: {path: 'HKCR\CLSID\{3A84F9C2-6164-485C-A7D9-4B27F8AC009E}'}
+  - !registryKey: {path: 'HKCR\WOW6432Node\CLSID\{3A84F9C2-6164-485C-A7D9-4B27F8AC009E}'}
+  - !registryValue: {path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\PreviewHandlers', value: '{3A84F9C2-6164-485C-A7D9-4B27F8AC009E}', operation: delete}
+  - !registryValue: {path: 'HKCR\.pdf\ShellEx\{8895b1c6-b41f-4c1c-a562-0d564250836f}', value: '(Default)', operation: delete}
+  - !registryKey: {path: 'HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\{9459C573-B17A-45AE-9F64-1857B5D58CEE}'}
+  - !registryKey: {path: 'HKU\S-1-5-21-3476428458-2503407758-626446112-1002\SOFTWARE\Microsoft\Active Setup\Installed Components\{9459C573-B17A-45AE-9F64-1857B5D58CEE}'}
+  - !registryKey: {path: 'HKLM\SYSTEM\CurrentControlSet\Services\EventLog\Application\Edge'}
+  - !registryKey: {path: 'HKLM\SOFTWARE\Microsoft\MediaPlayer\ShimInclusionList\msedge.exe'}
+  - !registryKey: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update'}
+
+    # WebView
+  - !registryKey: {path: 'HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView'}
+
+  - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run', value: 'Microsoft Edge Update', operation: delete}
+  - !registryValue: {path: 'HKCU\SOFTWARE\RegisteredApplications', value: 'Microsoft Edge', operation: delete}
+  - !registryValue: {path: 'HKCU\SOFTWARE\Classes\.htm\OpenWithProgids', value: 'MSEdgeHTM', operation: delete}
+  - !registryValue: {path: 'HKCU\SOFTWARE\Classes\.html\OpenWithProgids', value: 'MSEdgeHTM', operation: delete}
+  - !registryValue: {path: 'HKCU\SOFTWARE\Classes\.shtml\OpenWithProgids', value: 'MSEdgeHTM', operation: delete}
+  - !registryValue: {path: 'HKCU\SOFTWARE\Classes\.svg\OpenWithProgids', value: 'MSEdgeHTM', operation: delete}
+  - !registryValue: {path: 'HKCU\SOFTWARE\Classes\.xht\OpenWithProgids', value: 'MSEdgeHTM', operation: delete}
+  - !registryValue: {path: 'HKCU\SOFTWARE\Classes\.xhtml\OpenWithProgids', value: 'MSEdgeHTM', operation: delete}
+  - !registryValue: {path: 'HKCU\SOFTWARE\Classes\.webp\OpenWithProgids', value: 'MSEdgeHTM', operation: delete}
+  - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ApplicationAssociationToasts', value: 'MSEdgeHTM_microsoft-edge', operation: delete}
+  - !registryKey: {path: 'HKCU\SOFTWARE\Microsoft\Active Setup\Installed Components\{9459C573-B17A-45AE-9F64-1857B5D58CEE}'}
+  - !registryKey: {path: 'HKCU\SOFTWARE\Microsoft\Edge'}
+
+  - !run: {exeDir: true, exe: "EDGE.bat", weight: 20}
+
+  - !file:
+    path: "%ProgramFiles(x86)%\\Internet Explorer"
+  - !file:
+    path: "%ProgramW6432%\\Internet Explorer"
+  - !run: {exeDir: true, exe: "EDGEX.bat", weight: 20}
+
+  - !systemPackage: {name: 'Microsoft-Windows-Internet-Browser-Deployment', arch: amd64, language: 'neutral'}
+
+  - !file: {path: '%SYSTEMDRIVE%\Users\Public\Desktop\Microsoft Edge.lnk'}
+  - !file: {path: "%ProgramFiles(x86)%\\Microsoft\\Edge", weight: 10}
+  - !file: {path: "%ProgramFiles(x86)%\\Microsoft\\EdgeUpdate", weight: 10}
+  - !file: {path: "%ProgramFiles(x86)%\\Microsoft\\EdgeCore", weight: 10}
+
+    # WebView
+  - !registryKey: {path: 'HKCU\SOFTWARE\Microsoft\EdgeWebView'}
+  - !file: {path: "%ProgramFiles(x86)%\\Microsoft\\EdgeWebView", weight: 10}
+
+    # prevent edge from reinstalling itself
+  - !cmd:
+    command: 'reg add "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /v "DoNotUpdateToEdgeWithChromium" /t REG_DWORD /d 1 /f'
+    wait: true
+
+    # uninstall edge APPX packages
+  - !appx: {name: 'Microsoft.MicrosoftEdge.Stable*', type: family}
+  - !appx: {name: 'Microsoft.MicrosoftEdgeDevToolsClient*', type: family}
+
+    # wipe edge user directories
+  - !taskKill: {name: 'MicrosoftEdgeUpdate'}
+
+  - !powerShell:
+    command: '.\EDGE-WIPE.ps1'
+    exeDir: true
+    wait: true

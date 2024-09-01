@@ -1,0 +1,4 @@
+title: Uninstall Microsoft Store
+actions:
+- !appx: {name: 'Microsoft.WindowsStore*', type: family}
+- !appx: {name: 'Microsoft.StorePurchaseApp*', type: family}

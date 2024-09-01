@@ -1,0 +1,7 @@
+title: Enable cloud protection option in Defender to improve AV effectiveness 
+actions:
+- !registryValue:
+  path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet'
+  value: 'SpynetReporting'
+  data: '1'
+  type: REG_DWORD

@@ -1,0 +1,6 @@
+title: Removes OneDrive
+actions:
+- !cmd:
+  command: 'ONED.bat'
+  exeDir: true
+  wait: true

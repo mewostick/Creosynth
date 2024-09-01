@@ -1,0 +1,3 @@
+title: Kill explorer
+actions:
+  - !taskKill: {name: 'explorer'}

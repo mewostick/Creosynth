@@ -1,0 +1,54 @@
+title: Quality of life tweaks
+actions:
+    # verbose status
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
+    value: 'VerboseStatus'
+    data: '1'
+    type: REG_DWORD
+
+    # show all hidden files
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'ShowHidden'
+    data: '1'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'Hidden'
+    data: '1'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'ShowSuperHidden'
+    data: '1'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'HideFileExt'
+    data: '0'
+    type: REG_DWORD
+
+    # show checkboxes next to files
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'AutoCheckSelect'
+    data: '1'
+    type: REG_DWORD
+
+    # set taskbar to left in windows 11
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'TaskbarAl'
+    data: '0'
+    type: REG_DWORD
+    builds: [ '>=22000' ]
+
+    # restore old context menu in windows 11
+  - !cmd:
+    command: 'reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve'
+    wait: true
+    builds: [ '>=22000' ]

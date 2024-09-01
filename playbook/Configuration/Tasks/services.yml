@@ -1,0 +1,6 @@
+title: Sets certain Windows Services to manual in order to decrease background load. (taken from Chris Titus Windows Utility)
+actions:
+- !cmd:
+  command: 'SERVICES.BAT'
+  exeDir: true
+  wait: true

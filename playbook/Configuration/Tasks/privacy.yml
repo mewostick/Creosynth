@@ -1,0 +1,534 @@
+---
+title: Enhancing Windows privacy (everything seen here has been taken from Atlas)
+actions:
+  # disable ad id
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo'
+    value: 'Enabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows\AdvertisingInfo'
+    value: 'DisabledByGroupPolicy'
+    data: '1'
+    type: REG_DWORD
+
+  # https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-bluetooth
+  # https://en.wikipedia.org/wiki/Bluetooth_advertising
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Bluetooth'
+    value: 'AllowAdvertising'
+    data: '0'
+    type: REG_DWORD
+
+  # disabling sync provider notifications
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'ShowSyncProviderNotifications'
+    data: '0'
+    type: REG_DWORD
+
+  # no nvidia telemetry
+  - !registryValue:
+    path: 'HKCU\Software\NVIDIA Corporation\NVControlPanel2\Client'
+    value: 'OptInOrOutPreference'
+    data: '0'
+    type: REG_DWORD
+  
+  # no office telemetry
+  - !registryValue:
+    path: 'HKCU\Software\Policies\Microsoft\office\16.0\common'
+    value: 'sendcustomerdata'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\Software\Policies\Microsoft\office\common\clienttelemetry'
+    value: 'sendtelemetry'
+    data: '3'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\Software\Policies\Microsoft\office\16.0\common'
+    value: 'qmenable'
+    data: '0'
+    type: REG_DWORD
+
+  # disabling any form of synchronisation with microsoft
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
+    value: 'DisableSettingSync'
+    data: '2'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
+    value: 'DisableSettingSyncUserOverride'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
+    value: 'DisableSyncOnPaidNetwork'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync'
+    value: 'DisableWindowsSettingSync'
+    data: '2'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Personalization'
+    value: 'Enabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\BrowserSettings'
+    value: 'Enabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Credentials'
+    value: 'Enabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Accessibility'
+    value: 'Enabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Windows'
+    value: 'Enabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SettingSync'
+    value: 'SyncPolicy'
+    data: '5'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Messaging'
+    value: 'AllowMessageSync'
+    data: '0'
+    type: REG_DWORD
+
+  # disable suggest ways to set up windows (annoying window)
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement'
+    value: 'ScoobeSystemSettingEnabled'
+    data: '0'
+    type: REG_DWORD
+
+  # app permissions config
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appDiagnostics'
+    value: 'Value'
+    data: 'Deny'
+    type: REG_SZ
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location'
+    value: 'Value'
+    data: 'Deny'
+    type: REG_SZ
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation'
+    value: 'Value'
+    data: 'Deny'
+    type: REG_SZ
+
+    # Prevent Windows Media DRM internet access
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\WMDRM'
+    value: 'DisableOnline'
+    data: '1'
+    type: REG_DWORD
+
+    # Disable Windows Media Player wizard on first run
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\MediaPlayer\Preferences'
+    value: 'AcceptedPrivacyStatement'
+    data: '1'
+    type: REG_DWORD
+
+    # Disable Windows Media Player diagnostics
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\MediaPlayer\Preferences'
+    value: 'UsageTracking'
+    data: '0'
+    type: REG_DWORD
+
+    # disable activity feed
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    value: 'EnableActivityFeed'
+    data: '0'
+    type: REG_DWORD
+
+    # disable app launch tracker
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'Start_TrackProgs'
+    data: '0'
+    type: REG_DWORD
+
+    # disable device monitoring
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\DeviceHealthAttestationService'
+    value: 'EnableDeviceHealthAttestationService'
+    data: '0'
+    type: REG_DWORD
+
+    # disable 'experimentation'
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\default\System\AllowExperimentation'
+    value: 'Value'
+    data: '0'
+    type: REG_DWORD
+
+    # disable lock screen camera
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization'
+    value: 'NoLockScreenCamera'
+    data: '1'
+    type: REG_DWORD
+
+    # disable online speech recognition
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Speech_OneCore\Settings\OnlineSpeechPrivacy'
+    value: 'HasAccepted'
+    data: '0'
+    type: REG_DWORD
+
+    # disable program compatibility assistant
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
+    value: 'AITEnable'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
+    value: 'AllowTelemetry'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
+    value: 'DisableEngine'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
+    value: 'DisableInventory'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
+    value: 'DisablePCA'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat'
+    value: 'DisableUAR'
+    data: '1'
+    type: REG_DWORD
+
+    # https://admx.help/?Category=Windows_11_2022&Policy=Microsoft.Policies.PerformancePerftrack::WdiScenarioExecutionPolicy
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WDI\{9c5a40da-b965-4fc3-8781-88dd50a6299d}'
+    value: 'ScenarioExecutionEnabled'
+    data: '0'
+    type: REG_DWORD
+
+    # disable some oobe screen that changes settings after update
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE'
+    value: 'DisablePrivacyExperience'
+    data: '1'
+    type: REG_DWORD
+
+    # disable rsop logging
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    value: 'RSoPLogging'
+    data: '0'
+    type: REG_DWORD
+
+    # disable auto speech online update
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Speech'
+    value: 'AllowSpeechModelUpdate'
+    data: '0'
+    type: REG_DWORD
+
+    # disable tailored experiences
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Privacy'
+    value: 'TailoredExperiencesWithDiagnosticDataEnabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    value: 'DisableTailoredExperiencesWithDiagnosticData'
+    data: '1'
+    type: REG_DWORD
+
+    # disable user tracking
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
+    value: 'NoInstrumentation'
+    data: '1'
+    type: REG_DWORD
+
+    # prevent websites from accessing your languages list
+  - !registryValue:
+    path: 'HKCU\Control Panel\International\User Profile'
+    value: 'HttpAcceptLanguageOptOut'
+    data: '1'
+    type: REG_DWORD
+
+    # disable win error reporting
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
+    value: 'Disabled'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting'
+    value: 'DoReport'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
+    value: 'Disabled'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
+    value: 'DontShowUI'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting'
+    value: 'ShowUI'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
+    value: 'LoggingDisabled'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting'
+    value: 'DontSendAdditionalData'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Component Based Servicing'
+    value: 'DisableWerReporting'
+    data: '1'
+    type: REG_DWORD
+
+  # Do not send a Windows error report when a generic driver is installed on a device
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings'
+    value: 'DisableSendGenericDriverNotFoundToWER'
+    data: '1'
+    type: REG_DWORD
+
+  # Prevent Windows from sending an error report when a device driver requests additional software during installation
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Settings'
+    value: 'DisableSendRequestAdditionalSoftwareToWER'
+    data: '1'
+    type: REG_DWORD
+
+  # disallow user activity upload
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    value: 'UploadUserActivities'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    value: 'PublishUserActivities'
+    data: '0'
+    type: REG_DWORD
+
+    # Configure search permissions
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
+    value: 'BingSearchEnabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings'
+    value: 'IsAADCloudSearchEnabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings'
+    value: 'IsDeviceSearchHistoryEnabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings'
+    value: 'IsMSACloudSearchEnabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings'
+    value: 'SafeSearchMode'
+    data: '0'
+    type: REG_DWORD
+
+    # Policies
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
+    value: 'ConnectedSearchUseWeb'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
+    value: 'DisableWebSearch'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search'
+    value: 'EnableDynamicContentInWSB'
+    data: '0'
+    type: REG_DWORD
+
+    # Disable online search and don't include web results from Bing
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer'
+    value: 'DisableSearchBoxSuggestions'
+    data: '1'
+    type: REG_DWORD
+
+    # disable kms telemetry
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform'
+    value: 'NoGenTicket'
+    data: '1'
+    type: REG_DWORD
+
+    # disable ceip
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\AppV\CEIP'
+    value: 'CEIPEnable'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\SQMClient\Windows'
+    value: 'CEIPEnable'
+    data: '0'
+    type: REG_DWORD
+
+    # disable diagnostic tracing
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Diagnostics\Performance'
+    value: 'DisableDiagnosticTracing'
+    data: '1'
+    type: REG_DWORD
+
+    # https://learn.microsoft.com/en-us/dotnet/core/tools/telemetry
+  - !cmd: {command: 'setx DOTNET_CLI_TELEMETRY_OPTOUT 1'}
+
+    # disable input telemetry
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\InputPersonalization'
+    value: 'RestrictImplicitInkCollection'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\InputPersonalization'
+    value: 'RestrictImplicitTextCollection'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore'
+    value: 'HarvestContacts'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Personalization\Settings'
+    value: 'AcceptedPrivacyPolicy'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\TabletPC'
+    value: 'PreventHandwritingDataSharing'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports'
+    value: 'PreventHandwritingErrorReports'
+    data: '1'
+    type: REG_DWORD
+    # Disable typing insights
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Input\Settings'
+    value: 'InsightsEnabled'
+    data: '0'
+    type: REG_DWORD
+    # Disable improve inking and typing recognition
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Input\TIPC'
+    value: 'Enabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Input\TIPC'
+    value: 'Enabled'
+    data: '0'
+    type: REG_DWORD
+
+    # Stop DiagTrack service to add the changes
+  - !service: {name: 'DiagTrack', operation: stop, ignoreErrors: true}
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Diagnostics\DiagTrack'
+    value: 'ShowedToastAtLevel'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection'
+    value: 'AllowTelemetry'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection'
+    value: 'MaxTelemetryAllowed'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection'
+    value: 'AllowTelemetry'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\DataCollection'
+    value: 'AllowTelemetry'
+    data: '0'
+    type: REG_DWORD
+
+    # Misc
+  - !registryValue:
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Diagnostics\DiagTrack\EventTranscriptKey'
+    value: 'EnableEventTranscript'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Diagnostics\DiagTrack\EventTranscriptKey'
+    value: 'MiniTraceSlotEnabled'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows\DataCollection'
+    value: 'AllowDeviceNameInTelemetry'
+    data: '0'
+    type: REG_DWORD
+
+    # Disable & clear logger
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\WMI\Autologger\Diagtrack-Listener'
+    value: 'Start'
+    data: '0'
+    type: REG_DWORD
+  - !cmd: {command: 'del "%ProgramData%\Microsoft\Diagnosis\ETLLogs\AutoLogger\DiagTrack*" "%ProgramData%\Microsoft\Diagnosis\ETLLogs\ShutdownLogger\DiagTrack*" > nul 2>&1'}
+

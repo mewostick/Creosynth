@@ -1,0 +1,350 @@
+title: Windows optimisations for low audio latency
+actions:
+    # disable background apps
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications'
+    value: 'GlobalUserDisabled'
+    data: '1'
+    type: REG_DWORD
+
+    # set processor scheduling to background services
+  - !cmd
+    command: 'reg add "HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl" /v Win32PrioritySeparation /t REG_DWORD /d 24 /f'
+    wait: true
+
+    # set visual effects
+  - !registryValue:
+    path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects'
+    value: 'VisualFXSetting'
+    data: '3'
+    type: REG_DWORD
+    option: 'visual-yes'
+
+  - !registryValue:
+    path: 'HKEY_CURRENT_USER\Control Panel\Desktop'
+    value: 'UserPreferencesMask'
+    data: '9012038010000000'
+    type: REG_BINARY
+    option: 'visual-yes'
+
+  - !registryValue:
+    path: 'HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics'
+    value: 'MinAnimate'
+    data: '0'
+    type: REG_SZ
+    option: 'visual-yes'
+
+  - !registryValue:
+    path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'TaskbarAnimations'
+    data: '0'
+    type: REG_DWORD
+    option: 'visual-yes'
+
+  - !registryValue:
+    path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM'
+    value: 'EnableAeroPeek'
+    data: '0'
+    type: REG_DWORD
+    option: 'visual-yes'
+
+  - !registryValue:
+    path: 'HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM'
+    value: 'AlwaysHibernateThumbnails'
+    data: '0'
+    type: REG_DWORD
+    option: 'visual-yes'
+
+  - !registryValue:
+    path: 'HKEY_CURRENT_USER\Control Panel\Desktop'
+    value: 'FontSmoothing'
+    data: '2'
+    type: REG_SZ
+    option: 'visual-yes'
+
+  - !registryValue:
+    path: 'HKEY_CURRENT_USER\Control Panel\Desktop'
+    value: 'FontSmoothingType'
+    data: '2'
+    type: REG_DWORD
+    option: 'visual-yes'
+
+    # disable file indexing
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows Search'
+    value: 'SetupCompletedSuccessfully'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows Search'
+    value: 'EnableIndexing'
+    data: '0'
+    type: REG_DWORD
+
+  - !cmd
+    command: 'sc config WSearch start= disabled'
+    wait: true
+
+    # turn off fast startup & hibernation
+  - !cmd
+    command: 'powercfg /h off'
+    wait: true
+
+    # disable cpu throttling
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling'
+    value: 'PowerThrottlingOff'
+    data: '1'
+    type: REG_DWORD
+
+    # optimise network latency
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters'
+    value: 'TcpNoDelay'
+    data: '1'
+    type: REG_DWORD
+
+    # disable sysmain service
+  - !cmd
+    command: 'sc config "SysMain" start= disabled'
+    wait: true
+
+    # turn off notifications from apps and senders
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\PushNotifications'
+    value: 'ToastEnabled'
+    data: '0'
+    type: REG_DWORD
+
+    # turn off action centre (windows 10)
+  - !registryValue:
+    path: 'HKCU\Software\Policies\Microsoft\Windows\Explorer'
+    value: 'DisableNotificationCenter'
+    data: '1'
+    type: REG_DWORD
+    builds: [ '<22000' ]
+
+    # disable ethernet power management
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Class\4d36e972-e325-11ce-bfc1-08002be10318}\0001'
+    value: 'PnPCapabilities'
+    data: '24'
+    type: REG_DWORD
+
+    # disable dynamic tick
+  - !cmd
+    command: 'bcdedit /set disabledynamictick yes'
+    wait: true
+
+    # enable high precision event timer
+  - !cmd
+    command: 'sc config hpet start= auto'
+    wait: true
+
+    # disable screensaver
+  - !registryValue:
+    path: 'HKCU\Software\Policies\Microsoft\Windows\Control Panel\Desktop'
+    value: 'ScreenSaveActive'
+    data: '0'
+    type: REG_DWORD
+
+    # never turn off the display for "High Performance" power plan
+  - !cmd
+    command: 'powercfg /setacvalueindex SCHEME_MIN SUB_VIDEO VIDEOIDLE 0'
+    wait: true
+
+  - !cmd
+    command: 'powercfg /setdcvalueindex SCHEME_MIN SUB_VIDEO VIDEOIDLE 0'
+    wait: true
+
+    # set the 'High Performance' power plan
+  - !cmd
+    command: 'powercfg -setactive SCHEME_MIN'
+    wait: true
+
+    # set up the power plan
+  - !cmd
+    command: 'powercfg /SETDCVALUEINDEX SCHEME_CURRENT 2a737441-1930-4402-8d77-b2bebba308a3 48e6b7a6-50f5-4782-a5d4-53bb8f07e226 0'
+    wait: true
+
+  - !cmd
+    command: 'powercfg /SETACVALUEINDEX SCHEME_CURRENT 2a737441-1930-4402-8d77-b2bebba308a3 48e6b7a6-50f5-4782-a5d4-53bb8f07e226 0'
+    wait: true
+
+  - !cmd
+    command: 'powercfg /change standby-timeout-ac 0'
+    wait: true
+
+  - !cmd
+    command: 'powercfg /change monitor-timeout-ac 0'
+    wait: true
+
+  - !cmd
+    command: 'powercfg /change standby-timeout-dc 0'
+    wait: true
+
+  - !cmd
+    command: 'powercfg /change monitor-timeout-dc 0'
+    wait: true
+
+  - !cmd
+    command: 'powercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMAX 100'
+    wait: true
+
+  - !cmd
+    command: 'powercfg /setdcvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMAX 100'
+    wait: true
+
+  - !cmd
+    command: 'powercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMIN 100'
+    wait: true
+
+  - !cmd
+    command: 'powercfg /setdcvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMIN 100'
+    wait: true
+
+  - !cmd
+    command: 'powercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PERFINCTHRESHOLD 100'
+    wait: true
+
+  - !cmd
+    command: 'powercfg /setdcvalueindex SCHEME_CURRENT SUB_PROCESSOR PERFINCTHRESHOLD 100'
+    wait: true
+
+    # disable USB power management
+  - !cmd
+    command: 'powercfg /change standby-timeout-ac 0'
+    wait: true
+
+    # disable prefetch
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters'
+    value: 'EnablePrefetcher'
+    data: '0'
+    type: REG_DWORD
+
+    # disable auto folder discovery
+  - !registryValue:
+    path: 'HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell'
+    value: 'FolderType'
+    data: 'NotSpecified'
+    type: REG_SZ
+
+    # respect power modes
+  - !registryValue: 
+    path: 'HKLM\Software\Microsoft\Windows Search\Gather\Windows\SystemIndex'
+    value: 'RespectPowerModes'
+    data: '1'
+    type: REG_DWORD
+
+  # disable xbox trash
+  - !registryValue:
+    path: 'HKCU\System\GameConfigStore'
+    value: 'GameDVR_Enabled'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR'
+    value: 'AppCaptureEnabled'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\GameBar'
+    value: 'GamePanelStartupTipIndex'
+    data: '3'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\GameBar'
+    value: 'ShowStartupPanel'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\GameBar'
+    value: 'UseNexusForGameBarEnabled'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Gaming.GameBar.PresenceServer.Internal.PresenceWriter'
+    value: 'ActivationType'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\GameDVR'
+    value: 'AllowGameDVR'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\default\ApplicationManagement\AllowGameDVR'
+    value: 'value'
+    data: '0'
+    type: REG_DWORD
+
+    # disable sleep study diagnostics
+  - !run:
+    exe: 'wevtutil.exe'
+    args: 'set-log "Microsoft-Windows-SleepStudy/Diagnostic" /e:false'
+  - !run:
+    exe: 'wevtutil.exe'
+    args: 'set-log "Microsoft-Windows-Kernel-Processor-Power/Diagnostic" /e:false'
+  - !run:
+    exe: 'wevtutil.exe'
+    args: 'set-log "Microsoft-Windows-UserModePowerService/Diagnostic" /e:false'
+  - !scheduledTask: {path: '\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem', operation: disable}
+
+    # enable GlobalTimerResolutionRequests (Windows 10 22H2 is not supported)
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel'
+    value: 'GlobalTimerResolutionRequests'
+    data: '1'
+    type: REG_DWORD
+    builds: [ '>=22000' ]
+
+    # Puts ZwTimerResolution in Local Appdata and creates a task to automatically run zwt.exe with correct timer resolution (Windows 10 22H2 is not supported)
+  - !powerShell:
+    command: '.\ZwTimerResolution\ZWT.ps1'
+    exeDir: true
+    wait: true
+    builds: [ '>=22000' ]
+
+    # set GPU priority
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games'
+    value: 'GPU Priority'
+    data: '8'
+    type: REG_DWORD
+
+    # set some priority
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games'
+    value: 'Priority'
+    data: '6'
+    type: REG_DWORD
+
+    # set startup delay
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Serialize'
+    value: 'StartupDelayInMSec'
+    data: '0'
+    type: REG_DWORD
+
+    # change mouse hover time
+  - !registryValue:
+    path: 'HKCU\Control Panel\Mouse'
+    value: 'MouseHoverTime'
+    data: '10'
+    type: REG_SZ
+
+    # change menu show delay
+  - !registryValue:
+    path: 'HKCU\Control Panel\Desktop'
+    value: 'MenuShowDelay'
+    data: '0'
+    type: REG_SZ

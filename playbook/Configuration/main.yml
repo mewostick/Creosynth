@@ -1,0 +1,33 @@
+title: Make changes
+description: Below you may see every change that will occur once you run the playbook.
+actions:
+- !writeStatus: {status: 'Killing explorer'}
+- !task: {path: 'Tasks\kill-explorer.yml'}
+- !writeStatus: {status: 'Removing Microsoft Edge', option: 'remove-edge'}
+- !task: {path: 'Tasks\edge.yml', option: 'remove-edge'}
+- !writeStatus: {status: 'Removing OneDrive', option: 'remove-onedrive'}
+- !task: {path: 'Tasks\onedrive.yml', option: 'remove-onedrive'}
+- !writeStatus: {status: 'Disabling Windows Defender', option: 'disable-defender'}
+- !task: {path: 'Tasks\defender.yml', option: 'disable-defender'}
+- !writeStatus: {status: 'Enabling Cloud for Defender', option: '!disable-defender'}
+- !task: {path: 'Tasks\defender-fix.yml', option: '!disable-defender'}
+- !writeStatus: {status: 'Debloating your OS'}
+- !task: {path: 'Tasks\debloat.yml'}
+- !writeStatus: {status: 'Removing APPX bloat', option: 'remove-appx'}
+- !task: {path: 'Tasks\appx-debloat.yml', option: 'remove-appx'}
+- !writeStatus: {status: 'Removing Microsoft Store', option: 'store-yes'}
+- !task: {path: 'Tasks\store.yml', option: 'store-yes'}
+- !writeStatus: {status: 'Debloating Microsoft Edge', option: 'debloat-edge'}
+- !task: {path: 'Tasks\store.yml', option: 'debloat-edge'}
+- !writeStatus: {status: 'Configuring services'}
+- !task: {path: 'Tasks\services.yml'}
+- !writeStatus: {status: 'Configuring Windows Update'}
+- !task: {path: 'Tasks\updates.yml'}
+- !writeStatus: {status: 'Improving your privacy'}
+- !task: {path: 'Tasks\privacy.yml'}
+- !writeStatus: {status: 'Applying QoL changes'}
+- !task: {path: 'Tasks\qol.yml'}
+- !writeStatus: {status: 'Optimising Windows'}
+- !task: {path: 'Tasks\optimise.yml'}
+- !writeStatus: {status: 'Installing Chocolatey', option: 'choco-yes'}
+- !task: {path: 'Tasks\choco.yml', option: 'choco-yes'}

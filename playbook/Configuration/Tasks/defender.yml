@@ -1,0 +1,25 @@
+title: Disable Windows Defender & SmartScreen
+actions:
+- !cmd:
+  command: 'reg add "HKLM\System\CurrentControlSet\Services\WdFilter" /v "Start" /t REG_DWORD /d "4" /f'
+  wait: true
+
+- !cmd:
+  command: 'reg add "HKLM\System\CurrentControlSet\Services\WdNisDrv" /v "Start" /t REG_DWORD /d "4" /f'
+  wait: true
+
+- !cmd:
+  command: 'reg add "HKLM\System\CurrentControlSet\Services\WdNisSvc" /v "Start" /t REG_DWORD /d "4" /f'
+  wait: true
+
+- !cmd:
+  command: 'reg add "HKLM\System\CurrentControlSet\Services\WinDefend" /v "Start" /t REG_DWORD /d "4" /f'
+  wait: true
+
+- !cmd:
+  command: 'reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f'
+  wait: true
+
+- !cmd:
+  command: 'reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /v "EnableSmartScreen" /t REG_DWORD /d 0 /f'
+  wait: true

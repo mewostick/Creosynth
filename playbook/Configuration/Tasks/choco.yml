@@ -1,0 +1,6 @@
+title: Install Chocolatey
+actions:
+- !cmd:
+  command: 'CHOCO.bat'
+  exeDir: true
+  wait: true

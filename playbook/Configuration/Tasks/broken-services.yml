@@ -1,0 +1,848 @@
+title: Sets certain Windows Services to manual in order to decrease background load. Currently causes AME to freeze. (taken from Chris Titus Windows Utility)
+actions:
+- !service: 
+    name: "AJRouter" 
+    startup: 4  
+- !service: 
+    name: "ALG" 
+    startup: 3  
+- !service: 
+    name: "AppIDSvc" 
+    startup: 3  
+- !service: 
+    name: "AppMgmt" 
+    startup: 3  
+- !service: 
+    name: "AppReadiness" 
+    startup: 3  
+- !service: 
+    name: "AppVClient" 
+    startup: 4  
+- !service: 
+    name: "AppXSvc" 
+    startup: 3  
+- !service: 
+    name: "Appinfo" 
+    startup: 3  
+- !service: 
+    name: "AssignedAccessManagerSvc" 
+    startup: 4  
+- !service: 
+    name: "AudioEndpointBuilder" 
+    startup: 2  
+- !service: 
+    name: "AudioSrv" 
+    startup: 2  
+- !service: 
+    name: "Audiosrv" 
+    startup: 2  
+- !service: 
+    name: "AxInstSV" 
+    startup: 3  
+- !service: 
+    name: "BDESVC" 
+    startup: 3  
+- !service: 
+    name: "BFE" 
+    startup: 2  
+- !service: 
+    name: "BITS" 
+    startup: 2  
+- !service: 
+    name: "BTAGService" 
+    startup: 3  
+- !service: 
+    name: "BcastDVRUserService_*" 
+    startup: 3  
+- !service: 
+    name: "BluetoothUserService_*" 
+    startup: 3  
+- !service: 
+    name: "BrokerInfrastructure" 
+    startup: 2  
+- !service: 
+    name: "Browser" 
+    startup: 3  
+- !service: 
+    name: "BthAvctpSvc" 
+    startup: 2  
+- !service: 
+    name: "BthHFSrv" 
+    startup: 2  
+- !service: 
+    name: "CDPSvc" 
+    startup: 3  
+- !service: 
+    name: "CDPUserSvc_*" 
+    startup: 2  
+- !service: 
+    name: "COMSysApp" 
+    startup: 3  
+- !service: 
+    name: "CaptureService_*" 
+    startup: 3  
+- !service: 
+    name: "CertPropSvc" 
+    startup: 3  
+- !service: 
+    name: "ClipSVC" 
+    startup: 3  
+- !service: 
+    name: "ConsentUxUserSvc_*" 
+    startup: 3  
+- !service: 
+    name: "CoreMessagingRegistrar" 
+    startup: 2  
+- !service: 
+    name: "CredentialEnrollmentManagerUserSvc_*" 
+    startup: 3  
+- !service: 
+    name: "CryptSvc" 
+    startup: 2  
+- !service: 
+    name: "CscService" 
+    startup: 3  
+- !service: 
+    name: "DPS" 
+    startup: 2  
+- !service: 
+    name: "DcomLaunch" 
+    startup: 2  
+- !service: 
+    name: "DcpSvc" 
+    startup: 3  
+- !service: 
+    name: "DevQueryBroker" 
+    startup: 3  
+- !service: 
+    name: "DeviceAssociationBrokerSvc_*" 
+    startup: 3  
+- !service: 
+    name: "DeviceAssociationService" 
+    startup: 3  
+- !service: 
+    name: "DeviceInstall" 
+    startup: 3  
+- !service: 
+    name: "DevicePickerUserSvc_*" 
+    startup: 3  
+- !service: 
+    name: "DevicesFlowUserSvc_*" 
+    startup: 3  
+- !service: 
+    name: "Dhcp" 
+    startup: 2  
+- !service: 
+    name: "DiagTrack" 
+    startup: 4  
+- !service: 
+    name: "DialogBlockingService" 
+    startup: 4  
+- !service: 
+    name: "DispBrokerDesktopSvc" 
+    startup: 2  
+- !service: 
+    name: "DisplayEnhancementService" 
+    startup: 3  
+- !service: 
+    name: "DmEnrollmentSvc" 
+    startup: 3  
+- !service: 
+    name: "Dnscache" 
+    startup: 2  
+- !service: 
+    name: "DoSvc" 
+    startup: 2  
+- !service: 
+    name: "DsSvc" 
+    startup: 3  
+- !service: 
+    name: "DsmSvc" 
+    startup: 3  
+- !service: 
+    name: "DusmSvc" 
+    startup: 2  
+- !service: 
+    name: "EFS" 
+    startup: 3  
+- !service: 
+    name: "EapHost" 
+    startup: 3  
+- !service: 
+    name: "EntAppSvc" 
+    startup: 3  
+- !service: 
+    name: "EventLog" 
+    startup: 2  
+- !service: 
+    name: "EventSystem" 
+    startup: 2  
+- !service: 
+    name: "FDResPub" 
+    startup: 3  
+- !service: 
+    name: "Fax" 
+    startup: 3  
+- !service: 
+    name: "FontCache" 
+    startup: 2  
+- !service: 
+    name: "FrameServer" 
+    startup: 3  
+- !service: 
+    name: "FrameServerMonitor" 
+    startup: 3  
+- !service: 
+    name: "GraphicsPerfSvc" 
+    startup: 3  
+- !service: 
+    name: "HomeGroupListener" 
+    startup: 3  
+- !service: 
+    name: "HomeGroupProvider" 
+    startup: 3  
+- !service: 
+    name: "HvHost" 
+    startup: 3  
+- !service: 
+    name: "IEEtwCollectorService" 
+    startup: 3  
+- !service: 
+    name: "IKEEXT" 
+    startup: 3  
+- !service: 
+    name: "InstallService" 
+    startup: 3  
+- !service: 
+    name: "InventorySvc" 
+    startup: 3  
+- !service: 
+    name: "IpxlatCfgSvc" 
+    startup: 3  
+- !service: 
+    name: "KeyIso" 
+    startup: 2  
+- !service: 
+    name: "KtmRm" 
+    startup: 3  
+- !service: 
+    name: "LSM" 
+    startup: 2  
+- !service: 
+    name: "LanmanServer" 
+    startup: 2  
+- !service: 
+    name: "LanmanWorkstation" 
+    startup: 2  
+- !service: 
+    name: "LicenseManager" 
+    startup: 3  
+- !service: 
+    name: "LxpSvc" 
+    startup: 3  
+- !service: 
+    name: "MSDTC" 
+    startup: 3  
+- !service: 
+    name: "MSiSCSI" 
+    startup: 3  
+- !service: 
+    name: "MapsBroker" 
+    startup: 2  
+- !service: 
+    name: "McpManagementService" 
+    startup: 3  
+- !service: 
+    name: "MessagingService_*" 
+    startup: 3  
+- !service: 
+    name: "MicrosoftEdgeElevationService" 
+    startup: 3  
+- !service: 
+    name: "MixedRealityOpenXRSvc" 
+    startup: 3  
+- !service: 
+    name: "MpsSvc" 
+    startup: 2  
+- !service: 
+    name: "MsKeyboardFilter" 
+    startup: 4  
+- !service: 
+    name: "NPSMSvc_*" 
+    startup: 3  
+- !service: 
+    name: "NaturalAuthentication" 
+    startup: 3  
+- !service: 
+    name: "NcaSvc" 
+    startup: 3  
+- !service: 
+    name: "NcbService" 
+    startup: 3  
+- !service: 
+    name: "NcdAutoSetup" 
+    startup: 3  
+- !service: 
+    name: "NetSetupSvc" 
+    startup: 3  
+- !service: 
+    name: "NetTcpPortSharing" 
+    startup: 4  
+- !service: 
+    name: "Netlogon" 
+    startup: 2  
+- !service: 
+    name: "Netman" 
+    startup: 3  
+- !service: 
+    name: "NgcCtnrSvc" 
+    startup: 3  
+- !service: 
+    name: "NgcSvc" 
+    startup: 3  
+- !service: 
+    name: "NlaSvc" 
+    startup: 3  
+- !service: 
+    name: "OneSyncSvc_*" 
+    startup: 2  
+- !service: 
+    name: "P9RdrService_*" 
+    startup: 3  
+- !service: 
+    name: "PNRPAutoReg" 
+    startup: 3  
+- !service: 
+    name: "PNRPsvc" 
+    startup: 3  
+- !service: 
+    name: "PcaSvc" 
+    startup: 3  
+- !service: 
+    name: "PeerDistSvc" 
+    startup: 3  
+- !service: 
+    name: "PenService_*" 
+    startup: 3  
+- !service: 
+    name: "PerfHost" 
+    startup: 3  
+- !service: 
+    name: "PhoneSvc" 
+    startup: 3  
+- !service: 
+    name: "PimIndexMaintenanceSvc_*" 
+    startup: 3  
+- !service: 
+    name: "PlugPlay" 
+    startup: 3  
+- !service: 
+    name: "PolicyAgent" 
+    startup: 3  
+- !service: 
+    name: "Power" 
+    startup: 2  
+- !service: 
+    name: "PrintNotify" 
+    startup: 3  
+- !service: 
+    name: "PrintWorkflowUserSvc_*" 
+    startup: 3  
+- !service: 
+    name: "ProfSvc" 
+    startup: 2  
+- !service: 
+    name: "PushToInstall" 
+    startup: 3  
+- !service: 
+    name: "QWAVE" 
+    startup: 3  
+- !service: 
+    name: "RasAuto" 
+    startup: 3  
+- !service: 
+    name: "RasMan" 
+    startup: 3  
+- !service: 
+    name: "RemoteAccess" 
+    startup: 4  
+- !service: 
+    name: "RemoteRegistry" 
+    startup: 4  
+- !service: 
+    name: "RetailDemo" 
+    startup: 3  
+- !service: 
+    name: "RmSvc" 
+    startup: 3  
+- !service: 
+    name: "RpcEptMapper" 
+    startup: 2  
+- !service: 
+    name: "RpcLocator" 
+    startup: 3  
+- !service: 
+    name: "RpcSs" 
+    startup: 2  
+- !service: 
+    name: "SCPolicySvc" 
+    startup: 3  
+- !service: 
+    name: "SCardSvr" 
+    startup: 3  
+- !service: 
+    name: "SDRSVC" 
+    startup: 3  
+- !service: 
+    name: "SEMgrSvc" 
+    startup: 3  
+- !service: 
+    name: "SENS" 
+    startup: 2  
+- !service: 
+    name: "SNMPTRAP" 
+    startup: 3  
+- !service: 
+    name: "SNMPTrap" 
+    startup: 3  
+- !service: 
+    name: "SSDPSRV" 
+    startup: 3  
+- !service: 
+    name: "SamSs" 
+    startup: 2  
+- !service: 
+    name: "ScDeviceEnum" 
+    startup: 3  
+- !service: 
+    name: "Schedule" 
+    startup: 2  
+- !service: 
+    name: "SecurityHealthService" 
+    startup: 3  
+- !service: 
+    name: "Sense" 
+    startup: 3  
+- !service: 
+    name: "SensorDataService" 
+    startup: 3  
+- !service: 
+    name: "SensorService" 
+    startup: 3  
+- !service: 
+    name: "SensrSvc" 
+    startup: 3  
+- !service: 
+    name: "SessionEnv" 
+    startup: 3  
+- !service: 
+    name: "SgrmBroker" 
+    startup: 2  
+- !service: 
+    name: "SharedAccess" 
+    startup: 3  
+- !service: 
+    name: "SharedRealitySvc" 
+    startup: 3  
+- !service: 
+    name: "ShellHWDetection" 
+    startup: 2  
+- !service: 
+    name: "SmsRouter" 
+    startup: 3  
+- !service: 
+    name: "Spooler" 
+    startup: 2  
+- !service: 
+    name: "SstpSvc" 
+    startup: 3  
+- !service: 
+    name: "StateRepository" 
+    startup: 3  
+- !service: 
+    name: "StiSvc" 
+    startup: 3  
+- !service: 
+    name: "StorSvc" 
+    startup: 3  
+- !service: 
+    name: "SysMain" 
+    startup: 2  
+- !service: 
+    name: "SystemEventsBroker" 
+    startup: 2  
+- !service: 
+    name: "TabletInputService" 
+    startup: 3  
+- !service: 
+    name: "TapiSrv" 
+    startup: 3  
+- !service: 
+    name: "TermService" 
+    startup: 2  
+- !service: 
+    name: "TextInputManagementService" 
+    startup: 3  
+- !service: 
+    name: "Themes" 
+    startup: 2  
+- !service: 
+    name: "TieringEngineService" 
+    startup: 3  
+- !service: 
+    name: "TimeBroker" 
+    startup: 3  
+- !service: 
+    name: "TimeBrokerSvc" 
+    startup: 3  
+- !service: 
+    name: "TokenBroker" 
+    startup: 3  
+- !service: 
+    name: "TrkWks" 
+    startup: 2  
+- !service: 
+    name: "TroubleshootingSvc" 
+    startup: 3  
+- !service: 
+    name: "TrustedInstaller" 
+    startup: 3  
+- !service: 
+    name: "UI0Detect" 
+    startup: 3  
+- !service: 
+    name: "UdkUserSvc_*" 
+    startup: 3  
+- !service: 
+    name: "UevAgentService" 
+    startup: 4  
+- !service: 
+    name: "UmRdpService" 
+    startup: 3  
+- !service: 
+    name: "UnistoreSvc_*" 
+    startup: 3  
+- !service: 
+    name: "UserDataSvc_*" 
+    startup: 3  
+- !service: 
+    name: "UserManager" 
+    startup: 2  
+- !service: 
+    name: "UsoSvc" 
+    startup: 3  
+- !service: 
+    name: "VGAuthService" 
+    startup: 2  
+- !service: 
+    name: "VMTools" 
+    startup: 2  
+- !service: 
+    name: "VSS" 
+    startup: 3  
+- !service: 
+    name: "VacSvc" 
+    startup: 3  
+- !service: 
+    name: "VaultSvc" 
+    startup: 2  
+- !service: 
+    name: "W32Time" 
+    startup: 3  
+- !service: 
+    name: "WEPHOSTSVC" 
+    startup: 3  
+- !service: 
+    name: "WFDSConMgrSvc" 
+    startup: 3  
+- !service: 
+    name: "WMPNetworkSvc" 
+    startup: 3  
+- !service: 
+    name: "WManSvc" 
+    startup: 3  
+- !service: 
+    name: "WPDBusEnum" 
+    startup: 3  
+- !service: 
+    name: "WSService" 
+    startup: 3  
+- !service: 
+    name: "WSearch" 
+    startup: 2  
+- !service: 
+    name: "WaaSMedicSvc" 
+    startup: 3  
+- !service: 
+    name: "WalletService" 
+    startup: 3  
+- !service: 
+    name: "WarpJITSvc" 
+    startup: 3  
+- !service: 
+    name: "WbioSrvc" 
+    startup: 3  
+- !service: 
+    name: "Wcmsvc" 
+    startup: 2  
+- !service: 
+    name: "WcsPlugInService" 
+    startup: 3  
+- !service: 
+    name: "WdNisSvc" 
+    startup: 3  
+- !service: 
+    name: "WdiServiceHost" 
+    startup: 3  
+- !service: 
+    name: "WdiSystemHost" 
+    startup: 3  
+- !service: 
+    name: "WebClient" 
+    startup: 3  
+- !service: 
+    name: "Wecsvc" 
+    startup: 3  
+- !service: 
+    name: "WerSvc" 
+    startup: 3  
+- !service: 
+    name: "WiaRpc" 
+    startup: 3  
+- !service: 
+    name: "WinDefend" 
+    startup: 2  
+- !service: 
+    name: "WinHttpAutoProxySvc" 
+    startup: 3  
+- !service: 
+    name: "WinRM" 
+    startup: 3  
+- !service: 
+    name: "Winmgmt" 
+    startup: 2  
+- !service: 
+    name: "WlanSvc" 
+    startup: 2  
+- !service: 
+    name: "WpcMonSvc" 
+    startup: 3  
+- !service: 
+    name: "WpnService" 
+    startup: 3  
+- !service: 
+    name: "WpnUserService_*" 
+    startup: 2
+- !service: 
+    name: "XblAuthManager" 
+    startup: 3
+- !service: 
+    name: "XblGameSave" 
+    startup: 3
+- !service: 
+    name: "XboxGipSvc" 
+    startup: 3
+- !service: 
+    name: "XboxNetApiSvc" 
+    startup: 3
+- !service: 
+    name: "autotimesvc" 
+    startup: 3
+- !service: 
+    name: "bthserv" 
+    startup: 3
+- !service: 
+    name: "camsvc" 
+    startup: 3
+- !service: 
+    name: "cbdhsvc_*" 
+    startup: 2
+- !service: 
+    name: "cloudidsvc" 
+    startup: 3
+- !service: 
+    name: "dcsvc" 
+    startup: 3
+- !service: 
+    name: "defragsvc" 
+    startup: 3
+- !service: 
+    name: "diagnosticshub.standardcollector.service" 
+    startup: 3
+- !service: 
+    name: "diagsvc" 
+    startup: 3
+- !service: 
+    name: "dmwappushservice" 
+    startup: 3
+- !service: 
+    name: "dot3svc" 
+    startup: 3
+- !service: 
+    name: "edgeupdate" 
+    startup: 2
+- !service: 
+    name: "edgeupdatem" 
+    startup: 3
+- !service: 
+    name: "embeddedmode" 
+    startup: 3
+- !service: 
+    name: "fdPHost" 
+    startup: 3
+- !service: 
+    name: "fhsvc" 
+    startup: 3
+- !service: 
+    name: "gpsvc" 
+    startup: 2
+- !service: 
+    name: "hidserv" 
+    startup: 3
+- !service: 
+    name: "icssvc" 
+    startup: 3
+- !service: 
+    name: "iphlpsvc" 
+    startup: 2
+- !service: 
+    name: "lfsvc" 
+    startup: 3
+- !service: 
+    name: "lltdsvc" 
+    startup: 3
+- !service: 
+    name: "lmhosts" 
+    startup: 3
+- !service: 
+    name: "mpssvc" 
+    startup: 2
+- !service: 
+    name: "msiserver" 
+    startup: 3
+- !service: 
+    name: "netprofm" 
+    startup: 3
+- !service: 
+    name: "nsi" 
+    startup: 2
+- !service: 
+    name: "p2pimsvc" 
+    startup: 3
+- !service: 
+    name: "p2psvc" 
+    startup: 3
+- !service: 
+    name: "perceptionsimulation" 
+    startup: 3
+- !service: 
+    name: "pla" 
+    startup: 3
+- !service: 
+    name: "seclogon" 
+    startup: 3
+- !service: 
+    name: "shpamsvc" 
+    startup: 4
+- !service: 
+    name: "smphost" 
+    startup: 3
+- !service: 
+    name: "spectrum" 
+    startup: 3
+- !service: 
+    name: "sppsvc" 
+    startup: 2
+- !service: 
+    name: "ssh-agent" 
+    startup: 4
+- !service: 
+    name: "svsvc" 
+    startup: 3
+- !service: 
+    name: "swprv" 
+    startup: 3
+- !service: 
+    name: "tiledatamodelsvc" 
+    startup: 2
+- !service: 
+    name: "tzautoupdate" 
+    startup: 4
+- !service: 
+    name: "uhssvc" 
+    startup: 4
+- !service: 
+    name: "upnphost" 
+    startup: 3
+- !service: 
+    name: "vds" 
+    startup: 3
+- !service: 
+    name: "vm3dservice" 
+    startup: 3
+- !service: 
+    name: "vmicguestinterface" 
+    startup: 3
+- !service: 
+    name: "vmicheartbeat" 
+    startup: 3
+- !service: 
+    name: "vmickvpexchange" 
+    startup: 3
+- !service: 
+    name: "vmicrdv" 
+    startup: 3
+- !service: 
+    name: "vmicshutdown" 
+    startup: 3
+- !service: 
+    name: "vmictimesync" 
+    startup: 3
+- !service: 
+    name: "vmicvmsession" 
+    startup: 3
+- !service: 
+    name: "vmicvss" 
+    startup: 3
+- !service: 
+    name: "vmvss" 
+    startup: 3
+- !service: 
+    name: "wbengine" 
+    startup: 3
+- !service: 
+    name: "wcncsvc" 
+    startup: 3
+- !service: 
+    name: "webthreatdefsvc" 
+    startup: 3
+- !service: 
+    name: "webthreatdefusersvc_*" 
+    startup: 2
+- !service: 
+    name: "wercplsupport" 
+    startup: 3
+- !service: 
+    name: "wisvc" 
+    startup: 3
+- !service: 
+    name: "wlidsvc" 
+    startup: 3
+- !service: 
+    name: "wlpasvc" 
+    startup: 3
+- !service: 
+    name: "wmiApSrv" 
+    startup: 3
+- !service: 
+    name: "workfolderssvc" 
+    startup: 3
+- !service: 
+    name: "wscsvc" 
+    startup: 2
+- !service: 
+    name: "wuauserv" 
+    startup: 3
+- !service: 
+    name: "wudfsvc" 
+    startup: 3

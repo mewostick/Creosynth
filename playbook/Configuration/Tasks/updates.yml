@@ -1,0 +1,35 @@
+title: Configure Windows Update
+actions:
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU'
+    value: 'AUOptions'
+    data: '2'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate'
+    value: 'ExcludeWUDriversInQualityUpdate'
+    data: '1'
+    type: REG_DWORD
+
+  - !cmd
+    command: 'sc config "DoSvc" start= disabled'
+    wait: true
+
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate'
+    value: 'DisableMRT'
+    data: '1'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate'
+    value: 'DisableOSUpgrade'
+    data: '1'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\OSUpgrade'
+    value: 'AllowOSUpgrade'
+    data: '0'
+    type: REG_DWORD
