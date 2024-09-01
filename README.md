@@ -6,3 +6,11 @@ Notably, instead of focusing on video games the project focuses on various multi
 ## OS Support
 - Windows 10 22H2
 - Windows 11 23H2
+
+## Installation instructions
+See [here](https://github.com/mewostick/Creosynth/blob/main/pages/installation.md)
+
+## Learn more about the playbook
+[Changes](https://github.com/mewostick/Creosynth/blob/main/pages/changes.md)
+
+[Features](https://github.com/mewostick/Creosynth/blob/main/pages/playbook-features.md)
