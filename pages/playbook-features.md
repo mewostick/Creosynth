@@ -10,10 +10,12 @@ While running the playbook the user may control what changes would be applied.
 - Windows Defender and SmartScreen
 - Some visual effects for improved responsiveness
 
-## Installing
-- Chocolatey
-
 ## Microsoft Edge
 - Remove Microsoft Edge
 - Debloat Microsoft Edge - uses a couple of registry tweaks to make Edge less cluttered
 - Keep Microsoft Edge as is
+
+
+## Downloading and installing from the internet
+- Chocolatey
+- LATEST VisualCppRedist AIO (the playbook installs a local one if not chosen)
