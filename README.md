@@ -11,6 +11,8 @@ Notably, instead of focusing on video games the project focuses on various multi
 See [here](https://github.com/mewostick/Creosynth/blob/main/pages/installation.md)
 
 ## Learn more about the playbook
-[Changes](https://github.com/mewostick/Creosynth/blob/main/pages/changes.md)
+[Playbook changes](https://github.com/mewostick/Creosynth/blob/main/pages/changes.md)
 
-[Features](https://github.com/mewostick/Creosynth/blob/main/pages/playbook-features.md)
+[Unsupported user actions](https://github.com/mewostick/Creosynth/blob/main/pages/unsupported-actions.md)
+
+[Playbook features](https://github.com/mewostick/Creosynth/blob/main/pages/playbook-features.md)
