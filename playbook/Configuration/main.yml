@@ -3,6 +3,8 @@ description: Below you may see every change that will occur once you run the pla
 actions:
 - !writeStatus: {status: 'Killing explorer'}
 - !task: {path: 'Tasks\kill-explorer.yml'}
+- !writeStatus: {status: 'Installing all VCRuntimes'}
+- !task: {path: 'Tasks\vcruntimes.yml'}
 - !writeStatus: {status: 'Removing Microsoft Edge', option: 'remove-edge'}
 - !task: {path: 'Tasks\edge.yml', option: 'remove-edge'}
 - !writeStatus: {status: 'Removing OneDrive', option: 'remove-onedrive'}
@@ -29,5 +31,5 @@ actions:
 - !task: {path: 'Tasks\qol.yml'}
 - !writeStatus: {status: 'Optimising Windows'}
 - !task: {path: 'Tasks\optimise.yml'}
-- !writeStatus: {status: 'Installing Chocolatey', option: 'choco-yes'}
+- !writeStatus: {status: 'Installing Chocolatey', option: 'download-choco'}
 - !task: {path: 'Tasks\choco.yml', option: 'choco-yes'}
