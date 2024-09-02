@@ -1,5 +1,6 @@
 # Changes
 A shortened version of what does the playbook do:
+- Installs all VCRuntimes
 - Has an ability to remove Microsoft Edge & OneDrive
 - Can disable Defender & SmartScreen
 - Debloats the OS (optionally with APPX apps)
