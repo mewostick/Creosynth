@@ -8,7 +8,7 @@ A shortened version of what does the playbook do:
 - Configures Windows Update to never auto-update & not install drivers from the internet
 - Privacy tweaks (taken entirely from AtlasOS)
 - QoL changes such as hidden files & file extensions
-- Optimises Windows for latency + on Windows 11 it also installs [ZwTimerResolution](https://github.com/LuSlower/ZwTimerResolution) for faster Sleep(1)
+- Optimises Windows & the power plan for latency + on Windows 11 it also installs [ZwTimerResolution](https://github.com/LuSlower/ZwTimerResolution) for faster Sleep(1)
 - Optionally installs Chocolatey
 
 To view every change that is being made by the playbook, take a look at the [Configuration directory](https://github.com/mewostick/Creosynth/tree/main/playbook/Configuration).
