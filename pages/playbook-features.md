@@ -6,6 +6,10 @@ While running the playbook the user may control what changes would be applied.
 - Remove Microsoft Store - if the option to remove APPX was selected, the user will be asked if they would like to keep the Store
 - Remove OneDrive - removes OneDrive
 
+## Processor scheduling
+- For programs
+- For background services
+
 ## Disabling
 - Windows Defender and SmartScreen
 - Some visual effects for improved responsiveness
