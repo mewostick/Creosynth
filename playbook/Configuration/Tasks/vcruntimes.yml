@@ -1,0 +1,13 @@
+title: Installs all VCRuntimes (https://github.com/abbodi1406/vcredist)
+actions:
+  - !cmd
+    command: 'VCRuntimes\VisualCppRedist_AIO_x86_x64.exe /ai'
+    exeDir: true
+    wait: true
+    option: '!download-vcruntimes'
+
+  - !powerShell:
+    command: '.\VCRUNTIMES.ps1'
+    exeDir: true
+    wait: true
+    option: 'download-vcruntimes'

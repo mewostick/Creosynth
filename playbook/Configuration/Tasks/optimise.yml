@@ -7,10 +7,16 @@ actions:
     data: '1'
     type: REG_DWORD
 
-    # set processor scheduling to background services
+    # set processor scheduling to user choice
   - !cmd
     command: 'reg add "HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl" /v Win32PrioritySeparation /t REG_DWORD /d 24 /f'
     wait: true
+    option: background-services
+
+  - !cmd
+    command: 'reg add "HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl" /v Win32PrioritySeparation /t REG_DWORD /d 38 /f'
+    wait: true
+    option: optimise-for-programs
 
     # set visual effects
   - !registryValue:
@@ -238,7 +244,7 @@ actions:
     data: '1'
     type: REG_DWORD
 
-  # disable xbox trash
+  # disable xbox rubbish
   - !registryValue:
     path: 'HKCU\System\GameConfigStore'
     value: 'GameDVR_Enabled'
@@ -348,3 +354,22 @@ actions:
     value: 'MenuShowDelay'
     data: '0'
     type: REG_SZ
+
+    # change network throttling index to ffffff
+  - !cmd
+    command: 'reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkThrottlingIndex" /v "NetworkThrottlingIndex" /t REG_DWORD /d 4294967295 /f'
+    wait: true
+
+    # disable putting core kernel and device drivers to pagefile
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'DisablePagingExecutive'
+    data: '1'
+    type: REG_DWORD
+
+    # set large system cache to 1
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'LargeSystemCache'
+    data: '1'
+    type: REG_DWORD

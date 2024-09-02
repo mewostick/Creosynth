@@ -48,7 +48,16 @@ actions:
     builds: [ '>=22000' ]
 
     # restore old context menu in windows 11
+  - !registryValue:
+    path: 'HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32'
+    value: ''
+    data: ''
+    type: REG_SZ
+    builds: [ '>=22000' ]
+
+    # decrease explorer.exe bloat in Windows 11
   - !cmd:
-    command: 'reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve'
+    command: '11EXPLORER.bat'
+    exeDir: true
     wait: true
     builds: [ '>=22000' ]
