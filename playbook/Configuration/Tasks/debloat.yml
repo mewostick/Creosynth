@@ -308,6 +308,12 @@ actions:
     # disable spotlight
   - !registryValue:
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    value: 'DisableSpotlightCollectionOnDesktop'
+    data: '1'
+    type: REG_DWORD
+    
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
     value: 'DisableWindowsSpotlightWindowsWelcomeExperience'
     data: '1'
     type: REG_DWORD
