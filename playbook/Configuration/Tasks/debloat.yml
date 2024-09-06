@@ -307,8 +307,69 @@ actions:
 
     # disable spotlight
   - !registryValue:
-    path: 'HKCU\Software\Policies\Microsoft\Windows\Cloud Content'
-    value: 'DisableSpotlightCollectionOnDesktop'
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    value: 'DisableWindowsSpotlightWindowsWelcomeExperience'
     data: '1'
     type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization'
+    value: 'NoChangingLockScreen'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    value: 'DisableWindowsSpotlightFeatures'
+    data: '1'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    value: 'DisableWindowsSpotlightOnActionCenter'
+    data: '1'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    value: 'DisableWindowsSpotlightOnSettings'
+    data: '1'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    value: 'DisableThirdPartySuggestions'
+    data: '1'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    value: 'ConfigureWindowsSpotlight'
+    data: '2'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
+    value: 'IncludeEnterpriseSpotlight'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'RotatingLockScreenEnabled'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'LRotatingLockScreenEnabled'
+    data: '0'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+    value: 'RotatingLockScreenOverlayEnabled'
+    data: '0'
+    type: REG_DWORD
+
 
