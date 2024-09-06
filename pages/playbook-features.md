@@ -19,7 +19,10 @@ While running the playbook the user may control what changes would be applied.
 - Debloat Microsoft Edge - uses a couple of registry tweaks to make Edge less cluttered
 - Keep Microsoft Edge as is
 
+## ExplorerPatcher
+- Install from the playbook's files
 
 ## Downloading and installing from the internet
 - Chocolatey
 - LATEST VisualCppRedist AIO (the playbook installs a local one if not chosen)
+- LATEST STABLE ExplorerPatcher (the playbook has an option to install a local one if not chosen)
