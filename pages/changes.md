@@ -10,5 +10,6 @@ A shortened version of what does the playbook do:
 - QoL changes such as hidden files & file extensions
 - Optimises Windows & the power plan for latency + on Windows 11 it also installs [ZwTimerResolution](https://github.com/LuSlower/ZwTimerResolution) for faster Sleep(1)
 - Optionally installs Chocolatey
+- Optionally installs ExplorerPatcher
 
 To view every change that is being made by the playbook, take a look at the [Configuration directory](https://github.com/mewostick/Creosynth/tree/main/playbook/Configuration).
