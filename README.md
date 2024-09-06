@@ -10,6 +10,9 @@ Notably, instead of focusing on video games the project focuses on various multi
 ## Installation instructions
 See [here](https://github.com/mewostick/Creosynth/blob/main/pages/installation.md)
 
+## Updating Windows with the playbook
+See [here](https://github.com/mewostick/Creosynth/blob/main/pages/updating-windows.md)
+
 ## Learn more about the playbook
 [Playbook changes](https://github.com/mewostick/Creosynth/blob/main/pages/changes.md)
 
