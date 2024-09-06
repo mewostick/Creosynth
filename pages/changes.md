@@ -13,3 +13,8 @@ A shortened version of what does the playbook do:
 - Optionally installs ExplorerPatcher
 
 To view every change that is being made by the playbook, take a look at the [Configuration directory](https://github.com/mewostick/Creosynth/tree/main/playbook/Configuration).
+
+---
+
+# Credits
+Some of the tweaks in this playbook have been taken from AME 11, AtlasOS, Chris Titus' Windows Utility and various repositories on GitHub.
