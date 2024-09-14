@@ -20,11 +20,11 @@ actions:
     data: '1'
     type: REG_DWORD
 
-  - !registryValue:
-    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
-    value: 'ShowSuperHidden'
-    data: '1'
-    type: REG_DWORD
+#  - !registryValue:
+#    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+#    value: 'ShowSuperHidden'
+#    data: '1'
+#    type: REG_DWORD
 
   - !registryValue:
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
@@ -38,6 +38,7 @@ actions:
     value: 'AutoCheckSelect'
     data: '1'
     type: REG_DWORD
+    option: 'checkmark-yes'
 
     # set taskbar to left in windows 11
   - !registryValue:
@@ -61,3 +62,18 @@ actions:
     exeDir: true
     wait: true
     builds: [ '>=22000' ]
+
+    # set explorer.exe default page to "Your PC" in Windows 11
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+    value: 'LaunchTo'
+    data: '1'
+    type: REG_DWORD
+    builds: [ '>=22000' ]
+
+    # disable annoying USB notifcations (ex. Scan and Fix)
+  - !registryValue:
+    path: 'HKCU\Software\Microsoft\Shell\USB'
+    value: 'NotifyOnUsbErrors'
+    data: '0'
+    type: REG_DWORD
