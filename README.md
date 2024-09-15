@@ -10,7 +10,7 @@ The project focuses on various multimedia creation by providing a quick & solid 
 A fresh install is highly recommended.
 
 ## ⚙️ Installation instructions
-See here (will add hyperlink once the Wiki page is available...)
+See [here](https://github.com/mewostick/Creosynth/wiki/Playbook-installation)
 
 ## 📚 Want to learn about the playbook?
 [Visit the Wiki!](https://github.com/mewostick/Creosynth/wiki)
