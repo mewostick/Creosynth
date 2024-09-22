@@ -8,3 +8,8 @@ actions:
 - !appx: {operation: clearCache, name: '*Client.CBS*'}
 - !appx: {operation: clearCache, name: '*StartMenuExperienceHost*'}
 - !appx: {operation: clearCache, name: '*Windows.Search*'}
+
+- !powerShell:
+  command: 'Get-AppxPackage Microsoft.Windows.StartMenuExperienceHost | Foreach {Add-AppxPackage -DisableDevelopmentMode -ForceApplicationShutdown -Register "$($_.InstallLocation)\AppXManifest.xml"}'
+  wait: true
+
