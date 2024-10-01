@@ -1,12 +1,12 @@
 title: Make changes
 description: Below you may see every change that will occur once you run the playbook.
 actions:
-- !writeStatus: {status: 'Killing explorer'}
-- !task: {path: 'Tasks\kill-explorer.yml'}
-- !writeStatus: {status: 'Installing all VCRuntimes'}
-- !task: {path: 'Tasks\vcruntimes.yml'}
-- !writeStatus: {status: 'Cleaning up the start menu'}
-- !task: {path: 'Tasks\start-clean.yml'}
+- !writeStatus: {status: 'Killing explorer', option: 'killing-explorer'}
+- !task: {path: 'Tasks\kill-explorer.yml', option: 'killing-explorer'}
+- !writeStatus: {status: 'Installing all VCRuntimes', option: 'installing-all-vcruntimes'}
+- !task: {path: 'Tasks\vcruntimes.yml', option: 'installing-all-vcruntimes'}
+- !writeStatus: {status: 'Cleaning up the start menu', option: 'cleaning-startmenu'}
+- !task: {path: 'Tasks\start-clean.yml', option: 'cleaning-startmenu'}
 - !writeStatus: {status: 'Removing Microsoft Edge', option: 'remove-edge'}
 - !task: {path: 'Tasks\edge.yml', option: 'remove-edge'}
 - !writeStatus: {status: 'Removing OneDrive', option: 'remove-onedrive'}
@@ -15,24 +15,24 @@ actions:
 - !task: {path: 'Tasks\defender.yml', option: 'disable-defender'}
 - !writeStatus: {status: 'Re-enabling Defender', option: '!disable-defender'}
 - !task: {path: 'Tasks\defender-fix.yml', option: '!disable-defender'}
-- !writeStatus: {status: 'Debloating your OS'}
-- !task: {path: 'Tasks\debloat.yml'}
+- !writeStatus: {status: 'Debloating your OS', option: 'debloating-os'}
+- !task: {path: 'Tasks\debloat.yml', option: 'debloating-os'}
 - !writeStatus: {status: 'Removing APPX bloat', option: 'remove-appx'}
 - !task: {path: 'Tasks\appx-debloat.yml', option: 'remove-appx'}
 - !writeStatus: {status: 'Removing Microsoft Store', option: 'store-yes'}
 - !task: {path: 'Tasks\store.yml', option: 'store-yes'}
 - !writeStatus: {status: 'Debloating Microsoft Edge', option: 'debloat-edge'}
 - !task: {path: 'Tasks\store.yml', option: 'debloat-edge'}
-- !writeStatus: {status: 'Configuring services'}
-- !task: {path: 'Tasks\services.yml'}
-- !writeStatus: {status: 'Configuring Windows Update'}
-- !task: {path: 'Tasks\updates.yml'}
-- !writeStatus: {status: 'Improving your privacy'}
-- !task: {path: 'Tasks\privacy.yml'}
-- !writeStatus: {status: 'Applying QoL changes'}
-- !task: {path: 'Tasks\qol.yml'}
-- !writeStatus: {status: 'Optimising Windows'}
-- !task: {path: 'Tasks\optimise.yml'}
+- !writeStatus: {status: 'Configuring services', option: 'configuring-services'}
+- !task: {path: 'Tasks\services.yml', option: 'configuring-services'}
+- !writeStatus: {status: 'Configuring Windows Update', option: 'configuring-windows-update'}
+- !task: {path: 'Tasks\updates.yml', option: 'configuring-windows-update'}
+- !writeStatus: {status: 'Improving your privacy', option: 'improving-privacy'}
+- !task: {path: 'Tasks\privacy.yml', option: 'improving-privacy'}
+- !writeStatus: {status: 'Applying QoL changes', option: 'qol-changes'}
+- !task: {path: 'Tasks\qol.yml', option: 'qol-changes'}
+- !writeStatus: {status: 'Optimising Windows', option: 'optimising-windows'}
+- !task: {path: 'Tasks\optimise.yml', option: 'optimising-windows'}
 - !writeStatus: {status: 'Installing Chocolatey', option: 'download-choco'}
 - !task: {path: 'Tasks\choco.yml', option: 'choco-yes'}
 - !writeStatus: {status: 'Installing ExplorerPatcher', option: 'install-ep'}
