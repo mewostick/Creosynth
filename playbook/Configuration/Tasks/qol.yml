@@ -33,12 +33,12 @@ actions:
     type: REG_DWORD
 
     # show checkboxes next to files
-  - !registryValue:
-    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
-    value: 'AutoCheckSelect'
-    data: '1'
-    type: REG_DWORD
-    option: 'checkmark-yes'
+#  - !registryValue:
+#    path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+#    value: 'AutoCheckSelect'
+#    data: '1'
+#    type: REG_DWORD
+#    option: 'checkmark-yes'
 
     # set taskbar to left in windows 11
   - !registryValue:
