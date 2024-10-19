@@ -1,13 +1,7 @@
 title: Install ExplorerPatcher
 actions:
-  - !cmd
-    command: 'ExplorerPatcher\ep_setup.exe'
-    exeDir: true
-    wait: true
-    option: '!download-stable'
-
   - !powerShell:
     command: '.\EP.ps1'
     exeDir: true
     wait: true
-    option: 'download-stable'
+    option: 'download-explorerpatcher'
