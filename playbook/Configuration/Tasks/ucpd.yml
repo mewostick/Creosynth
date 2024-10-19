@@ -1,6 +1,8 @@
 title: Disables User Choice Protection Driver
 actions:
 - !powerShell:
-  command: '.\UCPD.ps1'
+  command: '.\DISABLE-UCPD-SERVICE.ps1'
   exeDir: true
   wait: true
+
+- !scheduledTask: {path: '\Microsoft\Windows\AppxDeploymentClient\UCPD velocity', operation: disable, ignoreErrors: true}
