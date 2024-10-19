@@ -77,3 +77,7 @@ actions:
     value: 'NotifyOnUsbErrors'
     data: '0'
     type: REG_DWORD
+
+    # Don't clean up recycle bin automatically
+  - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy', value: '08', type: REG_DWORD, data: '0'}
+  - !registryValue: {path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy', value: '256', type: REG_DWORD, data: '0'}
