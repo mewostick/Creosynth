@@ -14,8 +14,6 @@ actions:
 - !writeStatus: {status: 'Disabling Windows Defender', option: 'disable-defender'}
 - !task: {path: 'Tasks\defender.yml', option: 'disable-defender'}
 - !writeStatus: {status: 'Re-enabling Defender', option: '!disable-defender'}
-- !task: {path: 'Tasks\defender-fix.yml', option: '!disable-defender'}
-- !writeStatus: {status: 'Debloating your OS'}
 - !task: {path: 'Tasks\debloat.yml'}
 - !writeStatus: {status: 'Removing APPX bloat', option: 'remove-appx'}
 - !task: {path: 'Tasks\appx-debloat.yml', option: 'remove-appx'}
