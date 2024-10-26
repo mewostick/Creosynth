@@ -1,11 +1,12 @@
 title: Windows optimisations for low audio latency
 actions:
-    # disable background apps
+    # disable background apps (optional)
   - !registryValue:
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications'
     value: 'GlobalUserDisabled'
     data: '1'
     type: REG_DWORD
+    option: disable-background-appx
 
     # set processor scheduling to user choice
   - !cmd
