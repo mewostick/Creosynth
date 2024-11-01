@@ -424,7 +424,7 @@ actions:
     data: '1'
     type: REG_DWORD
 
-    # disable Spectre & Meltdown mitigations (optional)
+    # disable Spectre Meltdown and Downfall mitigations (optional)
   - !registryValue:
     path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
     value: 'FeatureSettingsOverride'
