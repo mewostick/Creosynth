@@ -1,11 +1,12 @@
 # 🤖 Creosynth
-This is a work-in-progress playbook to optimise Windows. 
+This is a work-in-progress playbook for optimising Windows. 
 
 The project focuses on various multimedia creation by providing a quick & solid Windows experience + specific optimisations for creators.
 
 ## 🪟 OS Support
 - Windows 10 22H2 Pro/Enterprise (64-bit)
 - Windows 11 23H2 Pro/Enterprise (64-bit)
+- Windows 11 24H2 Pro/Enterprise (64-bit, **MAY NOT BE STABLE**)
 
 A fresh install is highly recommended.
 
