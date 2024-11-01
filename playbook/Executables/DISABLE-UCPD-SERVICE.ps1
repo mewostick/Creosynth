@@ -1,1 +1,0 @@
-Set-Service -Name UCPD -StartupType Disabled​

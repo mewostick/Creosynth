@@ -13,8 +13,6 @@ actions:
 - !task: {path: 'Tasks\onedrive.yml', option: 'remove-onedrive'}
 - !writeStatus: {status: 'Disabling Windows Defender', option: 'disable-defender'}
 - !task: {path: 'Tasks\defender.yml', option: 'disable-defender'}
-- !writeStatus: {status: 'Disabling UCPD'}
-- !task: {path: 'Tasks\ucpd.yml'}
 - !writeStatus: {status: 'Debloating your OS'}
 - !task: {path: 'Tasks\debloat.yml'}
 - !writeStatus: {status: 'Removing APPX bloat', option: 'remove-appx'}
