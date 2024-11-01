@@ -9,14 +9,18 @@ actions:
     option: disable-background-appx
 
     # set processor scheduling to user choice
-  - !cmd
-    command: 'reg add "HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl" /v Win32PrioritySeparation /t REG_DWORD /d 24 /f'
-    wait: true
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications'
+    value: 'Win32PrioritySeperation'
+    data: '24'
+    type: REG_DWORD
     option: background-services
 
-  - !cmd
-    command: 'reg add "HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl" /v Win32PrioritySeparation /t REG_DWORD /d 38 /f'
-    wait: true
+  - !registryValue:
+    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications'
+    value: 'Win32PrioritySeperation'
+    data: '38'
+    type: REG_DWORD
     option: optimise-for-programs
 
     # set visual effects
@@ -89,9 +93,9 @@ actions:
     data: '0'
     type: REG_DWORD
 
-  - !cmd
-    command: 'sc config WSearch start= disabled'
-    wait: true
+  - !service: 
+    name: "WSearch" 
+    startup: 4 
 
     # turn off fast startup & hibernation
   - !cmd
@@ -113,9 +117,9 @@ actions:
     type: REG_DWORD
 
     # disable sysmain service
-  - !cmd
-    command: 'sc config "SysMain" start= disabled'
-    wait: true
+  - !service: 
+    name: "SysMain" 
+    startup: 4 
 
     # turn off notifications from apps and senders
   - !registryValue:
@@ -145,9 +149,9 @@ actions:
     wait: true
 
     # enable high precision event timer
-  - !cmd
-    command: 'sc config hpet start= auto'
-    wait: true
+  - !service: 
+    name: "hpet" 
+    startup: 2
 
     # disable screensaver
   - !registryValue:
