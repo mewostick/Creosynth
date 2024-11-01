@@ -378,3 +378,63 @@ actions:
     value: 'LargeSystemCache'
     data: '1'
     type: REG_DWORD
+
+    # disable memory compression (optional)
+  - !powerShell:
+    command: 'Disable-MMAgent -mc'
+    wait: true
+    option: disable-memory-compression
+
+    # MouseDataQueueSize & Latency fix
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'MouseDataQueueSize'
+    data: '14'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SYSTEM\ControlSet001\Control\Power\Profile\Events\{54533251-82be-4824-96c1-47b60b740d00}\{0DA965DC-8FCF-4c0b-8EFE-8DD5E7BC959A}\{7E01ADEF-81E6-4e1b-8075-56F373584694}'
+    value: 'TimeLimitInSeconds'
+    data: '2'
+    type: REG_DWORD
+
+    # real time csrss.exe
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\csrss.exe\PerfOptions'
+    value: 'CpuPriorityClass'
+    data: '4'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\csrss.exe\PerfOptions'
+    value: 'IoPriority'
+    data: '3'
+    type: REG_DWORD
+
+    # IRQ0 + IRQ8 priority
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl'
+    value: 'IRQ0Priority'
+    data: '1'
+    type: REG_DWORD
+
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl'
+    value: 'IRQ8Priority'
+    data: '1'
+    type: REG_DWORD
+
+    # disable Spectre & Meltdown mitigations (optional)
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'FeatureSettingsOverride'
+    data: '3'
+    type: REG_DWORD
+    option: disable-mitigations
+
+  - !registryValue:
+    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'FeatureSettingsOverrideMask'
+    data: '3'
+    type: REG_DWORD
+    option: disable-mitigations

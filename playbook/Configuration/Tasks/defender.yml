@@ -35,3 +35,9 @@ actions:
     value: 'EnableSmartScreen'
     data: '0'
     type: REG_DWORD
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity'
+    value: 'Enabled'
+    data: '0'
+    type: REG_DWORD
