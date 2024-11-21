@@ -385,13 +385,7 @@ actions:
     wait: true
     option: disable-memory-compression
 
-    # MouseDataQueueSize & Latency fix
-  - !registryValue:
-    path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
-    value: 'MouseDataQueueSize'
-    data: '14'
-    type: REG_DWORD
-
+    # Mouse latency fix
   - !registryValue:
     path: 'HKLM\SYSTEM\ControlSet001\Control\Power\Profile\Events\{54533251-82be-4824-96c1-47b60b740d00}\{0DA965DC-8FCF-4c0b-8EFE-8DD5E7BC959A}\{7E01ADEF-81E6-4e1b-8075-56F373584694}'
     value: 'TimeLimitInSeconds'
