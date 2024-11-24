@@ -1,0 +1,235 @@
+title: Disable Windows Defender, SmartScreen and other security features for potential performance increase
+actions:
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender'
+    value: 'AllowFastServiceStartup'
+    data: '0'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender'
+    value: 'DisableAntiSpyware'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender'
+    value: 'DisableAntiVirus'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender'
+    value: 'DisableSpecialRunningModes'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Microsoft\Windows Defender\Features'
+    value: 'TamperProtection'
+    data: '0'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender'
+    value: 'ServiceKeepAlive'
+    data: '0'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender\MpEngine'
+    value: 'MpEnablePus'
+    data: '0'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender\Real-Time Protection'
+    value: 'DisableBehaviorMonitoring'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender\Real-Time Protection'
+    value: 'DisableIOAVProtection'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender\Real-Time Protection'
+    value: 'DisableOnAccessProtection'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender\Real-Time Protection'
+    value: 'DisableRealtimeMonitoring'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender\Real-Time Protection'
+    value: 'DisableRoutinelyTakingAction'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender\Real-Time Protection'
+    value: 'DisableScanOnRealtimeEnable'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender\Reporting'
+    value: 'DisableEnhancedNotifications'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender\SpyNet'
+    value: 'DisableBlockAtFirstSeen'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender\SpyNet'
+    value: 'SpynetReporting'
+    data: '0'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Policies\Microsoft\Windows Defender\SpyNet'
+    value: 'SubmitSamplesConsent'
+    data: '2'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender'
+    value: 'DisableAntiSpyware'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System'
+    value: 'EnableSmartScreen'
+    data: '0'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity'
+    value: 'Enabled'
+    data: '0'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run'
+    value: 'SecurityHealth'
+    operation: delete
+    
+- !registryValue:
+    path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Run'
+    value: 'SecurityHealth'
+    operation: delete
+
+- !registryValue:
+    path: 'HKLM\System\CurrentControlSet\Control\WMI\Autologger\DefenderApiLogger'
+    value: 'Start'
+    data: '0'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKLM\System\CurrentControlSet\Control\WMI\Autologger\DefenderAuditLogger'
+    value: 'Start'
+    data: '0'
+    type: REG_DWORD
+
+- !scheduledTask:
+    path: 'Microsoft\Windows\ExploitGuard\ExploitGuard MDM policy Refresh'
+    operation: disable
+
+- !scheduledTask:
+    path: 'Microsoft\Windows\Windows Defender\Windows Defender Cache Maintenance'
+    operation: disable
+
+- !scheduledTask:
+    path: 'Microsoft\Windows\Windows Defender\Windows Defender Cleanup'
+    operation: disable
+
+- !scheduledTask:
+    path: 'Microsoft\Windows\Windows Defender\Windows Defender Scheduled Scan'
+    operation: disable
+
+- !scheduledTask:
+    path: 'Microsoft\Windows\Windows Defender\Windows Defender Verification'
+    operation: disable
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'MoveImages'
+    data: '0'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'FeatureSettings'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'FeatureSettingsOverride'
+    data: '3'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+    value: 'FeatureSettingsOverrideMask'
+    data: '3'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel'
+    value: 'DisableExceptionChainValidation'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FVE'
+    value: 'DisableExternalDMAUnderLock'
+    data: '0'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard'
+    value: 'EnableVirtualizationBasedSecurity'
+    data: '0'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard'
+    value: 'HVCIMATRequired'
+    data: '0'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Internet Explorer\Main'
+    value: 'DEPOff'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer'
+    value: 'NoDataExecutionPrevention'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System'
+    value: 'DisableHHDEP'
+    data: '1'
+    type: REG_DWORD
+
+- !registryValue:
+    path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System'
+    value: 'RunAsPPL'
+    data: '0'
+    type: REG_DWORD

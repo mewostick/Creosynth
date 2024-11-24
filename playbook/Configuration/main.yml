@@ -11,8 +11,8 @@ actions:
 - !task: {path: 'Tasks\edge.yml', option: 'remove-edge'}
 - !writeStatus: {status: 'Removing OneDrive', option: 'remove-onedrive'}
 - !task: {path: 'Tasks\onedrive.yml', option: 'remove-onedrive'}
-- !writeStatus: {status: 'Disabling Windows Defender', option: 'disable-defender'}
-- !task: {path: 'Tasks\defender.yml', option: 'disable-defender'}
+- !writeStatus: {status: 'Disabling Security', option: 'disable-security'}
+- !task: {path: 'Tasks\security.yml', option: 'disable-security'}
 - !writeStatus: {status: 'Debloating your OS'}
 - !task: {path: 'Tasks\debloat.yml'}
 - !writeStatus: {status: 'Removing APPX bloat', option: 'remove-appx'}
