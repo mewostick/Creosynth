@@ -1,8 +1,6 @@
 title: Make changes
 description: Below you may see every change that will occur once you run the playbook.
 actions:
-- !writeStatus: {status: 'Killing explorer'}
-- !task: {path: 'Tasks\kill-explorer.yml'}
 - !writeStatus: {status: 'Installing all VCRuntimes'}
 - !task: {path: 'Tasks\vcruntimes.yml'}
 - !writeStatus: {status: 'Cleaning up the start menu'}
