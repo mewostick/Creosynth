@@ -1,0 +1,13 @@
+title: Install FlexASIO + Fluent GUI
+actions:
+- !powerShell:
+  command: '.\FlexASIO\FlexASIO-1.10b.exe /VERYSILENT'
+  exeDir: true
+  wait: true
+  runas: currentUserElevated
+
+- !powerShell:
+  command: '.\FlexASIO-FluentGUI\FlexASIO.Fluent_0.3.1_x64_en-US.msi /quiet'
+  exeDir: true
+  wait: true
+  runas: currentUserElevated

@@ -318,13 +318,6 @@ actions:
     type: REG_DWORD
     builds: [ '>=22000' ]
 
-    # Puts ZwTimerResolution in Local Appdata and creates a task to automatically run zwt.exe with correct timer resolution (Windows 10 22H2 is not supported)
-  - !powerShell:
-    command: '.\ZwTimerResolution\ZWT.ps1'
-    exeDir: true
-    wait: true
-    builds: [ '>=22000' ]
-
     # set GPU priority
   - !registryValue:
     path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games'

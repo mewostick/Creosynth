@@ -1,0 +1,6 @@
+title: Install ZwTimerResolution on Windows 11
+actions:
+- !powerShell:
+  command: '.\ZwTimerResolution\ZWT.ps1'
+  exeDir: true
+  wait: true
