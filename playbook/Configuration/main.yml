@@ -1,8 +1,8 @@
-title: Make changes
+title: Changes in the Creosynth playbook
 description: Below you may see every change that will occur once you run the playbook.
 actions:
-- !writeStatus: {status: 'Installing all VCRuntimes'}
-- !task: {path: 'Tasks\vcruntimes.yml'}
+
+# General tasks
 - !writeStatus: {status: 'Cleaning up the start menu'}
 - !task: {path: 'Tasks\start-clean.yml'}
 - !writeStatus: {status: 'Removing Microsoft Edge', option: 'remove-edge'}
@@ -29,6 +29,10 @@ actions:
 - !task: {path: 'Tasks\qol.yml'}
 - !writeStatus: {status: 'Optimising Windows'}
 - !task: {path: 'Tasks\optimise.yml'}
+
+# Installation tasks
+- !writeStatus: {status: 'Installing all VCRuntimes'}
+- !task: {path: 'Tasks\vcruntimes.yml'}
 - !writeStatus: {status: 'Installing ZwTimerResolution', builds: ['>=22000']}
 - !task: {path: 'Tasks\Software\zwt.yml', builds: ['>=22000']}
 - !writeStatus: {status: 'Installing FlexASIO + Fluent', option: 'flexasio'}
