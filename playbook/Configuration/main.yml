@@ -31,8 +31,8 @@ actions:
 - !task: {path: 'Tasks\optimise.yml'}
 
 # Installation tasks
-- !writeStatus: {status: 'Installing all VCRuntimes'}
-- !task: {path: 'Tasks\vcruntimes.yml'}
+- !writeStatus: {status: 'Installing all VCRuntimes', option: 'vcruntimes'}
+- !task: {path: 'Tasks\vcruntimes.yml', option: 'vcruntimes'}
 - !writeStatus: {status: 'Installing ZwTimerResolution', builds: ['>=22000']}
 - !task: {path: 'Tasks\Software\zwt.yml', builds: ['>=22000']}
 - !writeStatus: {status: 'Installing FlexASIO + Fluent', option: 'flexasio'}
