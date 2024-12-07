@@ -4,4 +4,3 @@ actions:
     command: '.\EP.ps1'
     exeDir: true
     wait: true
-    option: 'download-explorerpatcher'

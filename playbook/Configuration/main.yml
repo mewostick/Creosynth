@@ -38,4 +38,4 @@ actions:
 - !writeStatus: {status: 'Installing Chocolatey', option: 'download-choco'}
 - !task: {path: 'Tasks\choco.yml', option: 'choco-yes'}
 - !writeStatus: {status: 'Installing ExplorerPatcher', option: 'download-explorerpatcher'}
-- !task: {path: 'Tasks\ep.yml', option: 'install-ep'}
+- !task: {path: 'Tasks\ep.yml', option: 'download-explorerpatcher'}
