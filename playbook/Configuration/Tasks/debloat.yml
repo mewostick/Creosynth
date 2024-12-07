@@ -378,11 +378,6 @@ actions:
     data: '0'
     type: REG_DWORD
 
-    # disable some HDD task
-  - !powerShell:
-    command: 'Disable-ScheduledTask -TaskPath "\Microsoft\Windows\Data Integrity Scan\" -TaskName "Data Integrity Scan"'
-    wait: true
-
     # start menu clean-up script from RapidOS
   - !powerShell:
     command: '.\STARTMENU-CLEANUP.ps1'
