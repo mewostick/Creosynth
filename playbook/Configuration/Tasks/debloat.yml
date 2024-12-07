@@ -388,3 +388,4 @@ actions:
     command: '.\STARTMENU-CLEANUP.ps1'
     exeDir: true
     wait: true
+    runas: currentUserElevated
