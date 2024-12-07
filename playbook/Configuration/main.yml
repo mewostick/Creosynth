@@ -3,22 +3,20 @@ description: Below you may see every change that will occur once you run the pla
 actions:
 
 # General tasks
-- !writeStatus: {status: 'Cleaning up the start menu'}
-- !task: {path: 'Tasks\start-clean.yml'}
-- !writeStatus: {status: 'Removing Microsoft Edge', option: 'remove-edge'}
-- !task: {path: 'Tasks\edge.yml', option: 'remove-edge'}
-- !writeStatus: {status: 'Removing OneDrive', option: 'remove-onedrive'}
-- !task: {path: 'Tasks\onedrive.yml', option: 'remove-onedrive'}
-- !writeStatus: {status: 'Disabling Security', option: 'disable-security'}
-- !task: {path: 'Tasks\security.yml', option: 'disable-security'}
 - !writeStatus: {status: 'Debloating your OS'}
 - !task: {path: 'Tasks\debloat.yml'}
 - !writeStatus: {status: 'Removing APPX bloat', option: 'remove-appx'}
 - !task: {path: 'Tasks\appx-debloat.yml', option: 'remove-appx'}
 - !writeStatus: {status: 'Removing Microsoft Store', option: 'store-yes'}
 - !task: {path: 'Tasks\store.yml', option: 'store-yes'}
+- !writeStatus: {status: 'Removing Microsoft Edge', option: 'remove-edge'}
+- !task: {path: 'Tasks\edge.yml', option: 'remove-edge'}
 - !writeStatus: {status: 'Debloating Microsoft Edge', option: 'debloat-edge'}
 - !task: {path: 'Tasks\store.yml', option: 'debloat-edge'}
+- !writeStatus: {status: 'Removing OneDrive', option: 'remove-onedrive'}
+- !task: {path: 'Tasks\onedrive.yml', option: 'remove-onedrive'}
+- !writeStatus: {status: 'Disabling Security', option: 'disable-security'}
+- !task: {path: 'Tasks\security.yml', option: 'disable-security'}
 - !writeStatus: {status: 'Configuring services'}
 - !task: {path: 'Tasks\services.yml'}
 - !writeStatus: {status: 'Configuring Windows Update'}

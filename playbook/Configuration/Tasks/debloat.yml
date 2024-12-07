@@ -1,5 +1,5 @@
 ---
-title: Debloat your OS (a lot of tweaks are taken from AtlasOS)
+title: General debloat (a lot of tweaks are taken from AtlasOS)
 actions:
   - !registryValue:
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
@@ -381,4 +381,10 @@ actions:
     # disable some HDD task
   - !powerShell:
     command: 'Disable-ScheduledTask -TaskPath "\Microsoft\Windows\Data Integrity Scan\" -TaskName "Data Integrity Scan"'
+    wait: true
+
+    # start menu clean-up script from RapidOS
+  - !powerShell:
+    command: '.\STARTMENU-CLEANUP.ps1'
+    exeDir: true
     wait: true
