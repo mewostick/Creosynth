@@ -1,0 +1,160 @@
+title: Install Chocolatey & optionally apps
+actions:
+- !cmd:
+  command: 'CHOCO.bat'
+  exeDir: true
+  wait: true
+
+- !writeStatus: {status: 'Installing Ant Renamer', option: 'ant-renamer'}
+- !powerShell:
+  command: 'choco install -y ant-renamer'
+  wait: true
+  runas: currentUserElevated
+  option: 'ant-renamer'
+
+- !writeStatus: {status: 'Installing Audacity', option: 'audacity'}
+- !powerShell:
+  command: 'choco install -y audacity'
+  wait: true
+  runas: currentUserElevated
+  option: 'audacity'
+
+- !writeStatus: {status: 'Installing ArrowDL', option: 'arrowdl'}
+- !powerShell:
+  command: 'choco install -y arrowdl'
+  wait: true
+  runas: currentUserElevated
+  option: 'arrowdl'
+
+- !writeStatus: {status: 'Installing FastCopy', option: 'fastcopy'}
+- !powerShell:
+  command: 'choco install -y fastcopy'
+  wait: true
+  runas: currentUserElevated
+  option: 'fastcopy'
+
+- !writeStatus: {status: 'Installing FastFlix', option: 'fastflix'}
+- !powerShell:
+  command: 'choco install -y fastflix'
+  wait: true
+  runas: currentUserElevated
+  option: 'fastflix'
+
+- !writeStatus: {status: 'Installing GIMP', option: 'gimp'}
+- !powerShell:
+  command: 'choco install -y gimp'
+  wait: true
+  runas: currentUserElevated
+  option: 'gimp'
+
+- !writeStatus: {status: 'Installing Handbrake', option: 'handbrake'}
+- !powerShell:
+  command: 'choco install -y handbrake'
+  wait: true
+  runas: currentUserElevated
+  option: 'handbrake'
+
+- !writeStatus: {status: 'Installing Lossless Cut', option: 'lossless-cut'}
+- !powerShell:
+  command: 'choco install -y lossless-cut'
+  wait: true
+  runas: currentUserElevated
+  option: 'lossless-cut'
+
+- !writeStatus: {status: 'Installing MediaInfo', option: 'mediainfo'}
+- !powerShell:
+  command: 'choco install -y mediainfo'
+  wait: true
+  runas: currentUserElevated
+  option: 'mediainfo'
+
+- !writeStatus: {status: 'Installing MPV', option: 'mpv'}
+- !powerShell:
+  command: 'choco install -y mpv'
+  wait: true
+  runas: currentUserElevated
+  option: 'mpv'
+
+- !writeStatus: {status: 'Installing Nomacs', option: 'nomacs'}
+- !powerShell:
+  command: 'choco install -y nomacs'
+  wait: true
+  runas: currentUserElevated
+  option: 'nomacs'
+
+- !writeStatus: {status: 'Installing NotepadPlusPlus', option: 'notepadplusplus'}
+- !powerShell:
+  command: 'choco install -y notepadplusplus'
+  wait: true
+  runas: currentUserElevated
+  option: 'notepadplusplus'
+
+- !writeStatus: {status: 'Installing PicView', option: 'picview'}
+- !powerShell:
+  command: 'choco install -y picview'
+  wait: true
+  runas: currentUserElevated
+  option: 'picview'
+
+- !writeStatus: {status: 'Installing Rufus', option: 'rufus'}
+- !powerShell:
+  command: 'choco install -y rufus'
+  wait: true
+  runas: currentUserElevated
+  option: 'rufus'
+
+- !writeStatus: {status: 'Installing SMPlayer', option: 'smplayer'}
+- !powerShell:
+  command: 'choco install -y smplayer'
+  wait: true
+  runas: currentUserElevated
+  option: 'smplayer'
+
+- !writeStatus: {status: 'Installing SubtitleEdit', option: 'subtitleedit'}
+- !powerShell:
+  command: 'choco install -y subtitleedit'
+  wait: true
+  runas: currentUserElevated
+  option: 'subtitleedit'
+
+- !writeStatus: {status: 'Installing VLC', option: 'vlc'}
+- !powerShell:
+  command: 'choco install -y vlc'
+  wait: true
+  runas: currentUserElevated
+  option: 'vlc'
+
+- !writeStatus: {status: 'Installing WireGuard', option: 'wireguard'}
+- !powerShell:
+  command: 'choco install -y wireguard'
+  wait: true
+  runas: currentUserElevated
+  option: 'wireguard'
+
+- !writeStatus: {status: 'Installing WireShark', option: 'wireshark'}
+- !powerShell:
+  command: 'choco install -y wireshark'
+  wait: true
+  runas: currentUserElevated
+  option: 'wireshark'
+
+- !writeStatus: {status: 'Installing Ungoogled Chromium', option: 'ungoogled-chromium'}
+- !powerShell:
+  command: 'choco install -y ungoogled-chromium'
+  wait: true
+  runas: currentUserElevated
+  option: 'ungoogled-chromium'
+
+- !writeStatus: {status: 'Installing Hugin', option: 'hugin'}
+- !powerShell:
+  command: 'choco install -y hugin'
+  wait: true
+  runas: currentUserElevated
+  option: 'hugin'
+
+- !writeStatus: {status: 'Installing 7zip', option: '7zip'}
+- !powerShell:
+  command: 'choco install -y 7zip'
+  wait: true
+  runas: currentUserElevated
+  option: '7zip'
