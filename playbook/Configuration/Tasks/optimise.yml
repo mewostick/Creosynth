@@ -425,3 +425,10 @@ actions:
     data: '3'
     type: REG_DWORD
     option: disable-mitigations
+
+    # fix 24H2 score drop in benchmarks
+  - !cmd:
+    command: '24H2-CPUFIX.bat'
+    exeDir: true
+    wait: true
+    builds: [ '>=26100' ]
