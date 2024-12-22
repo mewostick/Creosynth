@@ -158,3 +158,10 @@ actions:
   wait: true
   runas: currentUserElevated
   option: '7zip'
+
+- !writeStatus: {status: 'Installing foobar2000', option: 'foobar2000'}
+- !powerShell:
+  command: 'choco install -y foobar2000'
+  wait: true
+  runas: currentUserElevated
+  option: 'foobar2000'
