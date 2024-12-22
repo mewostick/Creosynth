@@ -1,0 +1,167 @@
+title: Install Scoop & optionally apps
+actions:
+- !powerShell:
+  command: 'Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression'
+  wait: true
+  runas: currentUserElevated
+
+- !writeStatus: {status: 'Installing Ant Renamer', option: 'ant-renamer'}
+- !powerShell:
+  command: 'scoop install ant-renamer'
+  wait: true
+  runas: currentUserElevated
+  option: 'ant-renamer'
+
+- !writeStatus: {status: 'Installing Audacity', option: 'audacity'}
+- !powerShell:
+  command: 'scoop install audacity'
+  wait: true
+  runas: currentUserElevated
+  option: 'audacity'
+
+- !writeStatus: {status: 'Installing ArrowDL', option: 'arrowdl'}
+- !powerShell:
+  command: 'scoop install arrowdl'
+  wait: true
+  runas: currentUserElevated
+  option: 'arrowdl'
+
+- !writeStatus: {status: 'Installing FastCopy', option: 'fastcopy'}
+- !powerShell:
+  command: 'scoop install fastcopy'
+  wait: true
+  runas: currentUserElevated
+  option: 'fastcopy'
+
+- !writeStatus: {status: 'Installing FastFlix', option: 'fastflix'}
+- !powerShell:
+  command: 'scoop install fastflix'
+  wait: true
+  runas: currentUserElevated
+  option: 'fastflix'
+
+- !writeStatus: {status: 'Installing GIMP', option: 'gimp'}
+- !powerShell:
+  command: 'scoop install gimp'
+  wait: true
+  runas: currentUserElevated
+  option: 'gimp'
+
+- !writeStatus: {status: 'Installing Handbrake', option: 'handbrake'}
+- !powerShell:
+  command: 'scoop install handbrake'
+  wait: true
+  runas: currentUserElevated
+  option: 'handbrake'
+
+- !writeStatus: {status: 'Installing Lossless Cut', option: 'lossless-cut'}
+- !powerShell:
+  command: 'scoop install lossless-cut'
+  wait: true
+  runas: currentUserElevated
+  option: 'lossless-cut'
+
+- !writeStatus: {status: 'Installing MediaInfo', option: 'mediainfo'}
+- !powerShell:
+  command: 'scoop install mediainfo'
+  wait: true
+  runas: currentUserElevated
+  option: 'mediainfo'
+
+- !writeStatus: {status: 'Installing MPV', option: 'mpv'}
+- !powerShell:
+  command: 'scoop install mpv'
+  wait: true
+  runas: currentUserElevated
+  option: 'mpv'
+
+- !writeStatus: {status: 'Installing Nomacs', option: 'nomacs'}
+- !powerShell:
+  command: 'scoop install nomacs'
+  wait: true
+  runas: currentUserElevated
+  option: 'nomacs'
+
+- !writeStatus: {status: 'Installing NotepadPlusPlus', option: 'notepadplusplus'}
+- !powerShell:
+  command: 'scoop install notepadplusplus'
+  wait: true
+  runas: currentUserElevated
+  option: 'notepadplusplus'
+
+- !writeStatus: {status: 'Installing PicView', option: 'picview'}
+- !powerShell:
+  command: 'scoop install picview'
+  wait: true
+  runas: currentUserElevated
+  option: 'picview'
+
+- !writeStatus: {status: 'Installing Rufus', option: 'rufus'}
+- !powerShell:
+  command: 'scoop install rufus'
+  wait: true
+  runas: currentUserElevated
+  option: 'rufus'
+
+- !writeStatus: {status: 'Installing SMPlayer', option: 'smplayer'}
+- !powerShell:
+  command: 'scoop install smplayer'
+  wait: true
+  runas: currentUserElevated
+  option: 'smplayer'
+
+- !writeStatus: {status: 'Installing SubtitleEdit', option: 'subtitleedit'}
+- !powerShell:
+  command: 'scoop install subtitleedit'
+  wait: true
+  runas: currentUserElevated
+  option: 'subtitleedit'
+
+- !writeStatus: {status: 'Installing VLC', option: 'vlc'}
+- !powerShell:
+  command: 'scoop install vlc'
+  wait: true
+  runas: currentUserElevated
+  option: 'vlc'
+
+- !writeStatus: {status: 'Installing WireGuard', option: 'wireguard'}
+- !powerShell:
+  command: 'scoop install wireguard'
+  wait: true
+  runas: currentUserElevated
+  option: 'wireguard'
+
+- !writeStatus: {status: 'Installing WireShark', option: 'wireshark'}
+- !powerShell:
+  command: 'scoop install wireshark'
+  wait: true
+  runas: currentUserElevated
+  option: 'wireshark'
+
+- !writeStatus: {status: 'Installing Ungoogled Chromium', option: 'ungoogled-chromium'}
+- !powerShell:
+  command: 'scoop install ungoogled-chromium'
+  wait: true
+  runas: currentUserElevated
+  option: 'ungoogled-chromium'
+
+- !writeStatus: {status: 'Installing Hugin', option: 'hugin'}
+- !powerShell:
+  command: 'scoop install hugin'
+  wait: true
+  runas: currentUserElevated
+  option: 'hugin'
+
+- !writeStatus: {status: 'Installing 7zip', option: '7zip'}
+- !powerShell:
+  command: 'scoop install 7zip'
+  wait: true
+  runas: currentUserElevated
+  option: '7zip'
+
+- !writeStatus: {status: 'Installing foobar2000', option: 'foobar2000'}
+- !powerShell:
+  command: 'scoop install foobar2000'
+  wait: true
+  runas: currentUserElevated
+  option: 'foobar2000'
