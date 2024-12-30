@@ -15,8 +15,12 @@ actions:
 - !task: {path: 'Tasks\edge-debloat.yml', option: 'debloat-edge'}
 - !writeStatus: {status: 'Removing OneDrive', option: 'remove-onedrive'}
 - !task: {path: 'Tasks\onedrive.yml', option: 'remove-onedrive'}
+
 - !writeStatus: {status: 'Disabling Security', option: 'disable-security'}
-- !task: {path: 'Tasks\security.yml', option: 'disable-security'}
+- !task: {path: 'Tasks\Security\defender.yml', option: 'only-defender'}
+- !task: {path: 'Tasks\Security\other-security.yml', option: 'other-security'}
+- !task: {path: 'Tasks\Security\other-security.yml', option: 'other-security'}
+
 - !writeStatus: {status: 'Configuring services'}
 - !task: {path: 'Tasks\services.yml'}
 - !writeStatus: {status: 'Configuring Windows Update'}
@@ -27,6 +31,7 @@ actions:
 - !task: {path: 'Tasks\qol.yml'}
 - !writeStatus: {status: 'Optimising Windows'}
 - !task: {path: 'Tasks\optimise.yml'}
+
 
 # Installation tasks
 - !writeStatus: {status: 'Installing all VCRuntimes', option: 'vcruntimes'}
