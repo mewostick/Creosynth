@@ -1,8 +1,6 @@
 title: APPX Removal
 actions:
     # Remove Microsoft Store (APPX) apps
-  - !appx: {name: '*disney*', type: family}
-  - !appx: {name: '*PowerAutomate*', type: family}
   - !appx: {name: '*MicrosoftTeams*', type: family}
   - !appx: {name: 'Clipchamp.Clipchamp*', type: family}
   - !appx: {name: 'Disney.37853FC22B2CE*', type: family}
@@ -28,7 +26,6 @@ actions:
   - !appx: {name: 'Microsoft.Office.OneNote*', type: family}
   - !appx: {name: 'Microsoft.People*', type: family}
   - !appx: {name: 'Microsoft.PowerAutomateDesktop*', type: family}
-  - !appx: {name: 'Microsoft.ScreenSketch*', type: family, option: 'remove-snipping-tool'}
   - !appx: {name: 'Microsoft.SkypeApp*', type: family}
   - !appx: {name: 'Microsoft.Todos*', type: family}
   - !appx: {name: 'Microsoft.WindowsAlarms*', type: family}
@@ -55,7 +52,7 @@ actions:
     runas: currentUserElevated
     wait: true
 
-    # windows 11
+    # Windows 11
   - !appx: {name: 'Microsoft.Paint*', type: family}
   - !appx: {name: 'Microsoft.CorporationII.QuickAssist*', type: family}
   - !appx: {name: 'Microsoft.WindowsTerminal*', type: family}

@@ -1,46 +1,43 @@
 title: Changes in the Creosynth playbook
 description: Below you may see every change that will occur once you run the playbook.
 actions:
+  # General tasks
+  - !writeStatus: {status: 'Debloating your OS'}
+  - !task: {path: 'Tasks\debloat.yml'}
+  - !writeStatus: {status: 'Removing APPX bloat', option: 'remove-appx'}
+  - !task: {path: 'Tasks\appx-debloat.yml', option: 'remove-appx'}
+  - !writeStatus: {status: 'Removing Microsoft Store', option: 'store-yes'}
+  - !task: {path: 'Tasks\remove-store.yml', option: 'store-yes'}
+  - !writeStatus: {status: 'Removing Microsoft Edge', option: 'remove-edge'}
+  - !task: {path: 'Tasks\edge-remove.yml', option: 'remove-edge'}
+  - !writeStatus: {status: 'Debloating Microsoft Edge', option: 'debloat-edge'}
+  - !task: {path: 'Tasks\edge-debloat.yml', option: 'debloat-edge'}
+  - !writeStatus: {status: 'Removing OneDrive', option: 'remove-onedrive'}
+  - !task: {path: 'Tasks\onedrive.yml', option: 'remove-onedrive'}
 
-# General tasks
-- !writeStatus: {status: 'Debloating your OS'}
-- !task: {path: 'Tasks\debloat.yml'}
-- !writeStatus: {status: 'Removing APPX bloat', option: 'remove-appx'}
-- !task: {path: 'Tasks\appx-debloat.yml', option: 'remove-appx'}
-- !writeStatus: {status: 'Removing Microsoft Store', option: 'store-yes'}
-- !task: {path: 'Tasks\remove-store.yml', option: 'store-yes'}
-- !writeStatus: {status: 'Removing Microsoft Edge', option: 'remove-edge'}
-- !task: {path: 'Tasks\edge-remove.yml', option: 'remove-edge'}
-- !writeStatus: {status: 'Debloating Microsoft Edge', option: 'debloat-edge'}
-- !task: {path: 'Tasks\edge-debloat.yml', option: 'debloat-edge'}
-- !writeStatus: {status: 'Removing OneDrive', option: 'remove-onedrive'}
-- !task: {path: 'Tasks\onedrive.yml', option: 'remove-onedrive'}
+  - !writeStatus: {status: 'Disabling Security', option: 'disable-security'}
+  - !task: {path: 'Tasks\Security\defender.yml', option: 'only-defender'}
+  - !task: {path: 'Tasks\Security\other-security.yml', option: 'other-security'}
 
-- !writeStatus: {status: 'Disabling Security', option: 'disable-security'}
-- !task: {path: 'Tasks\Security\defender.yml', option: 'only-defender'}
-- !task: {path: 'Tasks\Security\other-security.yml', option: 'other-security'}
-- !task: {path: 'Tasks\Security\other-security.yml', option: 'other-security'}
+  - !writeStatus: {status: 'Configuring services'}
+  - !task: {path: 'Tasks\services.yml'}
+  - !writeStatus: {status: 'Configuring Windows Update'}
+  - !task: {path: 'Tasks\updates.yml'}
+  - !writeStatus: {status: 'Improving your privacy'}
+  - !task: {path: 'Tasks\privacy.yml'}
+  - !writeStatus: {status: 'Applying QoL changes'}
+  - !task: {path: 'Tasks\qol.yml'}
+  - !writeStatus: {status: 'Optimising Windows'}
+  - !task: {path: 'Tasks\optimise.yml'}
 
-- !writeStatus: {status: 'Configuring services'}
-- !task: {path: 'Tasks\services.yml'}
-- !writeStatus: {status: 'Configuring Windows Update'}
-- !task: {path: 'Tasks\updates.yml'}
-- !writeStatus: {status: 'Improving your privacy'}
-- !task: {path: 'Tasks\privacy.yml'}
-- !writeStatus: {status: 'Applying QoL changes'}
-- !task: {path: 'Tasks\qol.yml'}
-- !writeStatus: {status: 'Optimising Windows'}
-- !task: {path: 'Tasks\optimise.yml'}
-
-
-# Installation tasks
-- !writeStatus: {status: 'Installing all VCRuntimes', option: 'vcruntimes'}
-- !task: {path: 'Tasks\vcruntimes.yml', option: 'vcruntimes'}
-- !writeStatus: {status: 'Installing ZwTimerResolution', builds: ['>=22000']}
-- !task: {path: 'Tasks\Software\zwt.yml', builds: ['>=22000']}
-- !writeStatus: {status: 'Installing FlexASIO + Fluent', option: 'flexasio'}
-- !task: {path: 'Tasks\Software\flexasio.yml', option: 'flexasio'}
-- !writeStatus: {status: 'Installing ExplorerPatcher', option: 'download-explorerpatcher'}
-- !task: {path: 'Tasks\ep.yml', option: 'download-explorerpatcher'}
-- !writeStatus: {status: 'Installing Chocolatey', option: 'download-choco'}
-- !task: {path: 'Tasks\Software\chocolatey.yml', option: 'download-choco'}
+  # Installation tasks
+  - !writeStatus: {status: 'Installing all VCRuntimes', option: 'vcruntimes'}
+  - !task: {path: 'Tasks\vcruntimes.yml', option: 'vcruntimes'}
+  - !writeStatus: {status: 'Installing ZwTimerResolution', builds: ['>=22000']}
+  - !task: {path: 'Tasks\Software\zwt.yml', builds: ['>=22000']}
+  - !writeStatus: {status: 'Installing FlexASIO + Fluent', option: 'flexasio'}
+  - !task: {path: 'Tasks\Software\flexasio.yml', option: 'flexasio'}
+  - !writeStatus: {status: 'Installing ExplorerPatcher', option: 'download-explorerpatcher'}
+  - !task: {path: 'Tasks\ep.yml', option: 'download-explorerpatcher'}
+  - !writeStatus: {status: 'Installing Chocolatey', option: 'download-choco'}
+  - !task: {path: 'Tasks\Software\chocolatey.yml', option: 'download-choco'}

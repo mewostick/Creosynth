@@ -1,120 +1,102 @@
 title: Disable other security measures, may provide little difference and is not recommended on online machines
 actions:
-- !registryValue:
+  - !registryValue:
     path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity'
     value: 'Enabled'
     data: '0'
     type: REG_DWORD
 
-- !registryValue:
+  - !registryValue:
     path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run'
     value: 'SecurityHealth'
     operation: delete
     
-- !registryValue:
+  - !registryValue:
     path: 'HKLM\Software\Microsoft\Windows\CurrentVersion\Run'
     value: 'SecurityHealth'
     operation: delete
 
-- !registryValue:
+  - !registryValue:
     path: 'HKLM\System\CurrentControlSet\Control\WMI\Autologger\DefenderApiLogger'
     value: 'Start'
     data: '0'
     type: REG_DWORD
 
-- !registryValue:
+  - !registryValue:
     path: 'HKLM\System\CurrentControlSet\Control\WMI\Autologger\DefenderAuditLogger'
     value: 'Start'
     data: '0'
     type: REG_DWORD
 
-- !scheduledTask:
+  - !scheduledTask:
     path: 'Microsoft\Windows\ExploitGuard\ExploitGuard MDM policy Refresh'
     operation: disable
 
-- !scheduledTask:
+  - !scheduledTask:
     path: 'Microsoft\Windows\Windows Defender\Windows Defender Cache Maintenance'
     operation: disable
 
-- !scheduledTask:
+  - !scheduledTask:
     path: 'Microsoft\Windows\Windows Defender\Windows Defender Cleanup'
     operation: disable
 
-- !scheduledTask:
+  - !scheduledTask:
     path: 'Microsoft\Windows\Windows Defender\Windows Defender Scheduled Scan'
     operation: disable
 
-- !scheduledTask:
+  - !scheduledTask:
     path: 'Microsoft\Windows\Windows Defender\Windows Defender Verification'
     operation: disable
 
-- !registryValue:
+  - !registryValue:
     path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
     value: 'MoveImages'
     data: '0'
     type: REG_DWORD
 
-- !registryValue:
-    path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
-    value: 'FeatureSettings'
-    data: '1'
-    type: REG_DWORD
-
-- !registryValue:
-    path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
-    value: 'FeatureSettingsOverride'
-    data: '3'
-    type: REG_DWORD
-
-- !registryValue:
-    path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
-    value: 'FeatureSettingsOverrideMask'
-    data: '3'
-    type: REG_DWORD
-
-- !registryValue:
+  - !registryValue:
     path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel'
     value: 'DisableExceptionChainValidation'
     data: '1'
     type: REG_DWORD
 
-- !registryValue:
+  - !registryValue:
     path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FVE'
     value: 'DisableExternalDMAUnderLock'
     data: '0'
     type: REG_DWORD
 
-- !registryValue:
+  - !registryValue:
     path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard'
     value: 'EnableVirtualizationBasedSecurity'
     data: '0'
     type: REG_DWORD
 
-- !registryValue:
+  - !registryValue:
     path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard'
     value: 'HVCIMATRequired'
     data: '0'
     type: REG_DWORD
 
-- !registryValue:
+  - !registryValue:
     path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Internet Explorer\Main'
     value: 'DEPOff'
     data: '1'
     type: REG_DWORD
 
-- !registryValue:
+  - !registryValue:
     path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer'
     value: 'NoDataExecutionPrevention'
     data: '1'
     type: REG_DWORD
 
-- !registryValue:
+  - !registryValue:
     path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System'
     value: 'DisableHHDEP'
     data: '1'
     type: REG_DWORD
 
-- !registryValue:
+  - !registryValue:
     path: 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System'
     value: 'RunAsPPL'
     data: '0'

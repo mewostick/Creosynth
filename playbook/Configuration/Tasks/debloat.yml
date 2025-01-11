@@ -143,14 +143,14 @@ actions:
     value: 'CriticalMaintenance_UsageDataReporting' # Remove from automatic maintenance
     operation: delete
 
-  # https://admx.help/?Category=Windows_11_2022&Policy=Microsoft.Policies.CloudContent::DisableSoftLanding
+    # https://admx.help/?Category=Windows_11_2022&Policy=Microsoft.Policies.CloudContent::DisableSoftLanding
   - !registryValue:
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
     value: 'DisableSoftLanding'
     data: '1'
     type: REG_DWORD
 
-  # disabling the settings banner in windows 11
+    # Disabling the settings ads banner in windows 11
   - !registryValue:
     path: 'HKLM\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\ValueBanner.IdealStateFeatureControlProvider'
     value: 'ActivationType'
@@ -158,14 +158,14 @@ actions:
     type: REG_DWORD
     builds: [ '>=22000' ]
 
-  # disable the new search icon in windows 10
+    # Disable the new search icon in windows 10
   - !cmd:
     command: '10SEARCHICON.bat'
     exeDir: true
     wait: true
     builds: [ '<22000' ]
 
-  # disabling 'recommended' ads in start menu in windows 11
+    # Disabling 'recommended' ads in start menu in windows 11
   - !registryValue:
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     value: 'Start_IrisRecommendations'
@@ -173,7 +173,7 @@ actions:
     type: REG_DWORD
     builds: [ '>=22000' ]
 
-  # disabling widgets in windows 11
+    # Disabling widgets in windows 11
   - !registryValue:
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Dsh'
     value: 'AllowNewsAndInterests'
@@ -181,7 +181,7 @@ actions:
     type: REG_DWORD
     builds: [ '>=22000' ]
 
-  # disabling windows feedback
+    # Disabling windows feedback
   - !registryValue:
     path: 'HKCU\SOFTWARE\Microsoft\Siuf\Rules'
     value: 'NumberOfSIUFInPeriod'
@@ -197,7 +197,7 @@ actions:
     data: '1'
     type: REG_DWORD
 
-  # disabling settings tips
+    # Disabling settings tips
   - !registryValue:
     path: 'HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowOnlineTips'
     value: 'value'
@@ -209,7 +209,7 @@ actions:
     data: '0'
     type: REG_DWORD
 
-    # disable news feed in windows 10
+    # Disable news feed in windows 10
   - !registryValue:
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds'
     value: 'EnableFeeds'
@@ -217,7 +217,7 @@ actions:
     type: REG_DWORD
     builds: [ '<22000' ]
 
-    # remove 'Meet Now' in windows 10
+    # Remove 'Meet Now' in windows 10
   - !registryValue:
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer'
     value: 'HideSCAMeetNow'
@@ -225,7 +225,7 @@ actions:
     type: REG_DWORD
     builds: [ '<22000' ]
 
-    # remove search box and task view from the taskbar
+    # Remove search box and task view from the taskbar
   - !registryValue:
     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search'
     value: 'SearchboxTaskbarMode'
@@ -260,14 +260,14 @@ actions:
     data: '0'
     type: REG_DWORD
 
-    # explorer ads
+    # Explorer ads
   - !registryValue:
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
     value: 'ShowHints'
     data: '0'
     type: REG_DWORD
 
-    # disable location tracking (taken from Chris Titus Win Utility)
+    # Disable location tracking (taken from Chris Titus Win Utility)
   - !registryValue:
     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore'
     value: 'location'
@@ -292,7 +292,7 @@ actions:
     data: '0'
     type: REG_DWORD
 
-    # disable wifi sense (taken from Chris Titus Win Utility)
+    # Disable wifi sense (taken from Chris Titus Win Utility)
   - !registryValue:
     path: 'HKLM\Software\Microsoft\PolicyManager\default\WiFi'
     value: 'AllowWiFiHotSpotReporting'
@@ -305,7 +305,7 @@ actions:
     data: '0'
     type: REG_DWORD
 
-    # disable spotlight
+    # Disable spotlight
   - !registryValue:
     path: 'HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent'
     value: 'DisableSpotlightCollectionOnDesktop'
@@ -378,7 +378,7 @@ actions:
     data: '0'
     type: REG_DWORD
 
-    # start menu clean-up script from RapidOS
+    # Start Menu clean-up script
   - !powerShell:
     command: '.\STARTMENU-CLEANUP.ps1'
     exeDir: true
