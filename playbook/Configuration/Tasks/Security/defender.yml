@@ -1,6 +1,6 @@
 title: Disable Windows Defender and SmartScreen
 actions:
   - !powerShell:
-    command: '& "Windows Defender\DEFENDER-CONFIGURATION.ps1" -MyArgument disable_av, disable_smartscreen'
+    command: '& "WindowsDefender\DEFENDER-CONFIGURATION.ps1" -MyArgument disable_av, disable_smartscreen'
     exeDir: true
     weight: 100
