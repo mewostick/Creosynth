@@ -38,12 +38,6 @@ actions:
 
   - !registryValue:
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
-    value: 'ConfigureDoNotTrack'
-    data: '1'
-    type: REG_DWORD
-
-  - !registryValue:
-    path: 'HKLM\SOFTWARE\Policies\Microsoft\Edge'
     value: 'AlternateErrorPagesEnabled'
     data: '0'
     type: REG_DWORD
