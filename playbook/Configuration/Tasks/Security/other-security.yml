@@ -1,5 +1,9 @@
 title: Disable other security measures, may provide little difference and is not recommended on online machines
 actions:
+  # First run defender task
+  - !task: {path: 'Tasks\Security\defender.yml'}
+
+  # Disable other security
   - !registryValue:
     path: 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity'
     value: 'Enabled'
