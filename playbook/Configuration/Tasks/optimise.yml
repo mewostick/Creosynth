@@ -1,4 +1,4 @@
-title: Windows optimisations for low audio latency
+title: Windows optimisations for better Windows usability
 actions:
     # disable background apps (optional)
   - !registryValue:

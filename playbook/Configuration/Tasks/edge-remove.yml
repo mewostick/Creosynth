@@ -89,6 +89,7 @@ actions:
     path: "%ProgramFiles(x86)%\\Internet Explorer"
   - !file:
     path: "%ProgramW6432%\\Internet Explorer"
+    
   - !run: {exeDir: true, exe: "EDGEX.bat", weight: 20}
 
   - !systemPackage: {name: 'Microsoft-Windows-Internet-Browser-Deployment', arch: amd64, language: 'neutral'}

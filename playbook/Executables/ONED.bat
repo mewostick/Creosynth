@@ -4,7 +4,7 @@ for /f "usebackq delims=" %%a in (`dir /b /a:d "%SystemDrive%\Users"`) do (
 	if exist "%SystemDrive%\Users\%%a\OneDrive" (
 		dir "%SystemDrive%\Users\%%a\OneDrive" /b | findstr "." > nul 2>&1 && (
 			echo Not stripping OneDrive as OneDrive files exist, exiting...
-			exit 6000
+			exit /b 6000
 		)
 	)
 )
