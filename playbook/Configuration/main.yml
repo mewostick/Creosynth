@@ -41,3 +41,5 @@ actions:
   - !task: {path: 'Tasks\ep.yml', option: 'download-explorerpatcher'}
   - !writeStatus: {status: 'Installing Chocolatey', option: 'download-choco'}
   - !task: {path: 'Tasks\Software\chocolatey.yml', option: 'download-choco'}
+  - !writeStatus: {status: 'Installing Scoop', option: 'download-scoop'}
+  - !task: {path: 'Tasks\Software\chocolatey.yml', option: 'download-scoop'}
