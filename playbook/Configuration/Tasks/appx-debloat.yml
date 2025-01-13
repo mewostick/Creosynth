@@ -61,6 +61,7 @@ actions:
   - !appx: {name: 'Microsoft.Windows.NarratorQuickStart*', type: family}
   - !appx: {name: 'MicrosoftCorporationII.QuickAssist*', type: family}
   - !appx: {name: 'Microsoft.GamingApp*', type: family}
+  - !appx: {name: 'MSTeams_*', type: family}
 
     # Necessary to refresh start menu entries etc.
   - !appx: {name: '*Client.CBS*', operation: clearCache}
