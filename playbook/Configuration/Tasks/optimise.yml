@@ -143,9 +143,11 @@ actions:
     data: '24'
     type: REG_DWORD
 
-    # disable dynamic tick
+    # disable dynamic tick when ZwTimerResolution is selected by the user (Windows 10 22H2 is not supported)
   - !cmd
     command: 'bcdedit /set disabledynamictick yes'
+    option: zwtimerresolution
+    builds: [ '>=22000' ]
     wait: true
 
     # enable high precision event timer
@@ -310,12 +312,13 @@ actions:
     args: 'set-log "Microsoft-Windows-UserModePowerService/Diagnostic" /e:false'
   - !scheduledTask: {path: '\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem', operation: disable}
 
-    # enable GlobalTimerResolutionRequests (Windows 10 22H2 is not supported)
+    # enable GlobalTimerResolutionRequests when ZwTimerResolution is selected by the user (Windows 10 22H2 is not supported)
   - !registryValue:
     path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel'
     value: 'GlobalTimerResolutionRequests'
     data: '1'
     type: REG_DWORD
+    option: zwtimerresolution
     builds: [ '>=22000' ]
 
     # set GPU priority

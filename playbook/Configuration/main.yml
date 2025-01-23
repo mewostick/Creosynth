@@ -34,7 +34,7 @@ actions:
   - !writeStatus: {status: 'Installing all VCRuntimes', option: 'vcruntimes'}
   - !task: {path: 'Tasks\vcruntimes.yml', option: 'vcruntimes'}
   - !writeStatus: {status: 'Installing ZwTimerResolution', builds: ['>=22000']}
-  - !task: {path: 'Tasks\Software\zwt.yml', builds: ['>=22000']}
+  - !task: {path: 'Tasks\Software\zwt.yml', builds: ['>=22000'], option: zwtimerresolution}
   - !writeStatus: {status: 'Installing FlexASIO + Fluent', option: 'flexasio'}
   - !task: {path: 'Tasks\Software\flexasio.yml', option: 'flexasio'}
   - !writeStatus: {status: 'Installing ExplorerPatcher', option: 'download-explorerpatcher'}
