@@ -39,6 +39,8 @@ actions:
   - !task: {path: 'Tasks\Software\flexasio.yml', option: 'flexasio'}
   - !writeStatus: {status: 'Installing ExplorerPatcher', option: 'download-explorerpatcher'}
   - !task: {path: 'Tasks\ep.yml', option: 'download-explorerpatcher'}
+  - !writeStatus: {status: 'Move the AME Wizard window away...', option: 'unified-hosts-autoupdate'}
+  - !task: {path: 'Tasks\Software\unified-hosts-autoupdate.yml', option: 'unified-hosts-autoupdate'}
   - !writeStatus: {status: 'Installing Chocolatey', option: 'download-choco'}
   - !task: {path: 'Tasks\Software\chocolatey.yml', option: 'download-choco'}
   - !writeStatus: {status: 'Installing Scoop', option: 'download-scoop'}

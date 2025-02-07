@@ -1,0 +1,7 @@
+title: Run Unified Hosts AutoUpdate
+actions:
+- !run:
+  exe: 'Unified-Hosts-AutoUpdate\AME-Workaround.exe'
+  exeDir: true
+  wait: true
+  runas: currentUserElevated
